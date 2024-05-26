@@ -1,0 +1,362 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width">
+<meta name="theme-color" content="#222" media="(prefers-color-scheme: light)">
+<meta name="theme-color" content="#222" media="(prefers-color-scheme: dark)"><meta name="generator" content="Hexo 7.1.1">
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png">
+  <link rel="mask-icon" href="/images/logo.svg" color="#222">
+
+<link rel="stylesheet" href="/css/main.css">
+
+
+
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" integrity="sha256-wiz7ZSCn/btzhjKDQBms9Hx4sSeUYsDrTLg7roPstac=" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.1.1/animate.min.css" integrity="sha256-PR7ttpcvz8qrF57fur/yAx1qXMFJeJFiA6pSzWi0OIE=" crossorigin="anonymous">
+
+<script class="next-config" data-name="main" type="application/json">{"hostname":"zhangyaoan.github.io","root":"/","images":"/images","scheme":"Muse","darkmode":true,"version":"8.19.2","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12},"copycode":{"enable":false,"style":null},"fold":{"enable":false,"height":500},"bookmark":{"enable":false,"color":"#222","save":"auto"},"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"stickytabs":false,"motion":{"enable":true,"async":false,"transition":{"menu_item":"fadeInDown","post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"i18n":{"placeholder":"搜索...","empty":"没有找到任何搜索结果：${query}","hits_time":"找到 ${hits} 个搜索结果（用时 ${time} 毫秒）","hits":"找到 ${hits} 个搜索结果"}}</script><script src="/js/config.js"></script>
+
+    <meta name="description" content="折腾WSL（颓废）的一点记录，其中前面的一部分是很久以前写的，从OneNote中提取出来的。当时一时兴起，折腾的是ArchLinux，但是后来很快就发现ArchLinux的坑太多，也没有官方支持，而且滚动更新不太适合和WSL搭配使用（我可不想每次打开电脑第一件事就是pacman -Syu，还要时不时处理滚挂的情况） 目前在用Debian，比ArchLinux稳定多了，但是仍然没有官方支持（好像是">
+<meta property="og:type" content="article">
+<meta property="og:title" content="WSL">
+<meta property="og:url" content="https://zhangyaoan.github.io/2024/05/25/WSL-configure/index.html">
+<meta property="og:site_name" content="蒟蒻のBlog">
+<meta property="og:description" content="折腾WSL（颓废）的一点记录，其中前面的一部分是很久以前写的，从OneNote中提取出来的。当时一时兴起，折腾的是ArchLinux，但是后来很快就发现ArchLinux的坑太多，也没有官方支持，而且滚动更新不太适合和WSL搭配使用（我可不想每次打开电脑第一件事就是pacman -Syu，还要时不时处理滚挂的情况） 目前在用Debian，比ArchLinux稳定多了，但是仍然没有官方支持（好像是">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="https://zhangyaoan.github.io/2024/05/25/WSL-configure/error0.png">
+<meta property="article:published_time" content="2024-05-25T15:12:39.000Z">
+<meta property="article:modified_time" content="2024-05-26T00:40:49.500Z">
+<meta property="article:author" content="unsigned char">
+<meta property="article:tag" content="颓废">
+<meta property="article:tag" content="Linux">
+<meta property="article:tag" content="技术">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://zhangyaoan.github.io/2024/05/25/WSL-configure/error0.png">
+
+
+<link rel="canonical" href="https://zhangyaoan.github.io/2024/05/25/WSL-configure/">
+
+
+
+<script class="next-config" data-name="page" type="application/json">{"sidebar":"","isHome":false,"isPost":true,"lang":"zh-CN","comments":true,"permalink":"https://zhangyaoan.github.io/2024/05/25/WSL-configure/","path":"2024/05/25/WSL-configure/","title":"WSL"}</script>
+
+<script class="next-config" data-name="calendar" type="application/json">""</script>
+<title>WSL | 蒟蒻のBlog</title>
+  
+
+
+
+
+
+
+
+
+  <noscript>
+    <link rel="stylesheet" href="/css/noscript.css">
+  </noscript>
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" class="use-motion">
+  <div class="headband"></div>
+
+  <main class="main">
+    <div class="column">
+      <header class="header" itemscope itemtype="http://schema.org/WPHeader"><div class="site-brand-container">
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="切换导航栏" role="button">
+        <span class="toggle-line"></span>
+        <span class="toggle-line"></span>
+        <span class="toggle-line"></span>
+    </div>
+  </div>
+
+  <div class="site-meta">
+
+    <a href="/" class="brand" rel="start">
+      <i class="logo-line"></i>
+      <p class="site-title">蒟蒻のBlog</p>
+      <i class="logo-line"></i>
+    </a>
+  </div>
+
+  <div class="site-nav-right">
+    <div class="toggle popup-trigger" aria-label="搜索" role="button">
+    </div>
+  </div>
+</div>
+
+
+
+<nav class="site-nav">
+  <ul class="main-menu menu"><li class="menu-item menu-item-home"><a href="/" rel="section"><i class="fa fa-home fa-fw"></i>首页</a></li><li class="menu-item menu-item-about"><a href="/about/" rel="section"><i class="fa fa-user fa-fw"></i>关于</a></li><li class="menu-item menu-item-tags"><a href="/tags/" rel="section"><i class="fa fa-tags fa-fw"></i>标签</a></li><li class="menu-item menu-item-archives"><a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>归档</a></li>
+  </ul>
+</nav>
+
+
+
+
+</header>
+        
+  
+  <aside class="sidebar">
+
+    <div class="sidebar-inner sidebar-nav-active sidebar-toc-active">
+      <ul class="sidebar-nav">
+        <li class="sidebar-nav-toc">
+          文章目录
+        </li>
+        <li class="sidebar-nav-overview">
+          站点概览
+        </li>
+      </ul>
+
+      <div class="sidebar-panel-container">
+        <!--noindex-->
+        <div class="post-toc-wrap sidebar-panel">
+            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#WSL%E5%AE%89%E8%A3%85%E4%BD%8D%E7%BD%AE%E7%9A%84%E7%A7%BB%E5%8A%A8"><span class="nav-number">1.</span> <span class="nav-text">WSL安装位置的移动</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#yay%E5%AE%89%E8%A3%85%E4%B8%8E%E4%BD%BF%E7%94%A8%E7%9A%84%E9%97%AE%E9%A2%98"><span class="nav-number">2.</span> <span class="nav-text">yay安装与使用的问题</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#GUI-%E9%97%AE%E9%A2%98"><span class="nav-number">3.</span> <span class="nav-text">GUI 问题</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#1-%E8%8A%B1%E5%B1%8F"><span class="nav-number">3.1.</span> <span class="nav-text">1. 花屏</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#2-GUI-%E5%BA%94%E7%94%A8%E7%A8%8B%E5%BA%8F%E7%9A%84%E8%AF%AD%E8%A8%80%E9%97%AE%E9%A2%98"><span class="nav-number">3.2.</span> <span class="nav-text">2. GUI 应用程序的语言问题</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#3-HiDPI-%E7%BC%A9%E6%94%BE%E9%97%AE%E9%A2%98"><span class="nav-number">3.3.</span> <span class="nav-text">3. HiDPI 缩放问题</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#4-Qt-%E5%BA%94%E7%94%A8%E7%A8%8B%E5%BA%8F%E4%B8%BB%E9%A2%98%E9%97%AE%E9%A2%98"><span class="nav-number">3.4.</span> <span class="nav-text">4. Qt 应用程序主题问题</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%AD%98%E5%9C%A8%E7%9A%84%E9%97%AE%E9%A2%98"><span class="nav-number">3.5.</span> <span class="nav-text">存在的问题</span></a></li></ol></li></ol></div>
+        </div>
+        <!--/noindex-->
+
+        <div class="site-overview-wrap sidebar-panel">
+          <div class="site-author animated" itemprop="author" itemscope itemtype="http://schema.org/Person">
+    <img class="site-author-image" itemprop="image" alt="unsigned char"
+      src="/images/user_avatar.webp">
+  <p class="site-author-name" itemprop="name">unsigned char</p>
+  <div class="site-description" itemprop="description">unsigned char's blog</div>
+</div>
+<div class="site-state-wrap animated">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+        <a href="/archives/">
+          <span class="site-state-item-count">5</span>
+          <span class="site-state-item-name">日志</span>
+        </a>
+      </div>
+      <div class="site-state-item site-state-tags">
+          <a href="/tags/">
+        <span class="site-state-item-count">11</span>
+        <span class="site-state-item-name">标签</span></a>
+      </div>
+  </nav>
+</div>
+  <div class="links-of-author animated">
+      <span class="links-of-author-item">
+        <a href="https://github.com/ZhangYaoan" title="GitHub → https:&#x2F;&#x2F;github.com&#x2F;ZhangYaoan" rel="noopener me" target="_blank"><i class="fab fa-github fa-fw"></i>GitHub</a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="https://www.luogu.com.cn/user/421773" title="Luogu → https:&#x2F;&#x2F;www.luogu.com.cn&#x2F;user&#x2F;421773" rel="noopener me" target="_blank">Luogu</a>
+      </span>
+  </div>
+
+        </div>
+      </div>
+    </div>
+
+    
+  </aside>
+
+
+    </div>
+
+    <div class="main-inner post posts-expand">
+
+
+  
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="https://zhangyaoan.github.io/2024/05/25/WSL-configure/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/user_avatar.webp">
+      <meta itemprop="name" content="unsigned char">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="蒟蒻のBlog">
+      <meta itemprop="description" content="unsigned char's blog">
+    </span>
+
+    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
+      <meta itemprop="name" content="WSL | 蒟蒻のBlog">
+      <meta itemprop="description" content="">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          WSL
+        </h1>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">发表于</span>
+
+      <time title="创建时间：2024-05-25 23:12:39" itemprop="dateCreated datePublished" datetime="2024-05-25T23:12:39+08:00">2024-05-25</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar-check"></i>
+      </span>
+      <span class="post-meta-item-text">更新于</span>
+      <time title="修改时间：2024-05-26 08:40:49" itemprop="dateModified" datetime="2024-05-26T08:40:49+08:00">2024-05-26</time>
+    </span>
+
+  
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody"><blockquote>
+<p>折腾WSL（<del>颓废</del>）的一点记录，其中前面的一部分是很久以前写的，从OneNote中提取出来的。当时一时兴起，折腾的是ArchLinux，但是后来很快就发现ArchLinux的坑太多，也没有官方支持，而且滚动更新不太适合和WSL搭配使用（我可不想每次打开电脑第一件事就是<code>pacman -Syu</code>，还要时不时处理滚挂的情况）</p>
+<p>目前在用Debian，比ArchLinux稳定多了，但是仍然没有官方支持（好像是？）</p>
+<p>最近又开始捣鼓GUI，又遇到了很多坑，填了一些，但是还要一些实在是搞不定。目前打算弃坑Debian，换回又官方支持的Ubuntu</p>
+</blockquote>
+<span id="more"></span>
+
+<h2 id="WSL安装位置的移动"><a href="#WSL安装位置的移动" class="headerlink" title="WSL安装位置的移动"></a>WSL安装位置的移动</h2><pre><code>1. `&gt;&gt; wsl --export [发行版名] [输出目录]\[发行版名].tar` 导出当前发行版
+2. `&gt;&gt; wsl --unregister [发行版名]` 删除当前发行版
+3. `&gt;&gt; wsl --import [发行版名] [安装目录] [输出目录]\[发行版名].tar --version 2` 重新导入发行版
+4. `&gt;&gt; [发行版名].execonfig --default-user[用户名]` 设置默认用户名为之前安装时的用户名（否则默认以root用户登录）
+5. 删除导出的tar文件（可选）
+</code></pre>
+<h2 id="yay安装与使用的问题"><a href="#yay安装与使用的问题" class="headerlink" title="yay安装与使用的问题"></a>yay安装与使用的问题</h2><pre><code>6. 换源：在`/etc/pacman.d/mirrorlist`顶端添加`Server = [htt](https://mirrors.tuna.tsinghua.edu.cn/archlinux/$repo/os/$arch) ps://mirrors.tuna.tsinghua.edu.cn/archlinux/$repo/os/$arch`
+7. 添加archlinuxcn源：在`/etc/pacman.conf`底部添加
+<figure class="highlight ini"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="section">[archlinuxcn]</span></span><br><span class="line"></span><br><span class="line"><span class="attr">SigLevel</span> = Optional TrustAll</span><br><span class="line"></span><br><span class="line"><span class="attr">Server</span> = https://mirrors.tuna.tsinghua.edu.cn/archlinuxcn/<span class="variable">$arch</span></span><br></pre></td></tr></table></figure>
+8. 安装yay：`sudo pacman -S yay`
+9. EX: `database already registered`问题：将archlinuxcn源添加至错误的文件
+10. EX: 找不到yay包：没有添加archlinuxcn源
+</code></pre>
+<blockquote>
+<p>P.S. WSL似乎不适合与ArchLinux这种激进的滚动发行版搭配使用，已弃坑</p>
+</blockquote>
+<hr>
+<p>以下均在Debian环境下</p>
+<h2 id="GUI-问题"><a href="#GUI-问题" class="headerlink" title="GUI 问题"></a>GUI 问题</h2><h3 id="1-花屏"><a href="#1-花屏" class="headerlink" title="1. 花屏"></a>1. 花屏</h3><p><img src="/2024/05/25/WSL-configure/error0.png"></p>
+<p>原因可能是由于缺乏显卡驱动导致的</p>
+<p>解决方案：<code>sudo apt install mesa-utils</code></p>
+<p>但是这个方案似乎不治本（也有可能根本没解决问题），安装完一段时间内这个问题确实解决了。但是在写本文时它又复发了，暂时无解。</p>
+<h3 id="2-GUI-应用程序的语言问题"><a href="#2-GUI-应用程序的语言问题" class="headerlink" title="2. GUI 应用程序的语言问题"></a>2. GUI 应用程序的语言问题</h3><p>WSL默认语言为全英文，在终端操作确实很好用，但是使用GUI程序时就有些不爽了。</p>
+<p>解决方案I: 更改全局locale: <code>sudo dpkg-reconfigure locales</code>，按照TUI界面操作就可以了（注意第一步按空格键选择）</p>
+<p>解决方案II: 设置<code>~/.profile</code>: 还是<code>sudo dpkg-reconfigure locales</code>，生成<code>zh_CN.UTF-8</code>的locale（默认是没有的），然后再<code>~/.profile</code>中插入<code>export LANG = zh_CN.UTF-8</code>（如果是更改<code>.bashrc</code>从Windows开始菜单运行的程序不会生效，猜测是由于从开始菜单运行时不经过bash）</p>
+<h3 id="3-HiDPI-缩放问题"><a href="#3-HiDPI-缩放问题" class="headerlink" title="3. HiDPI 缩放问题"></a>3. HiDPI 缩放问题</h3><p>GTK 程序默认似乎是没有问题的，问题在于 Qt</p>
+<p>解决方案: 编辑<code>~/.profile</code>: </p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">export</span> QT_QPA_PLATFORM=<span class="string">&quot;wayland&quot;</span></span><br><span class="line"><span class="built_in">export</span> QT_AUTO_SCREEN_SCALE_FACTOR=0</span><br><span class="line"><span class="built_in">export</span> QT_ENABLE_HIGHDPI_SCALING=0</span><br><span class="line"><span class="built_in">export</span> QT_SCALE_FACTOR=1.25</span><br></pre></td></tr></table></figure>
+
+<p>对于 Qt5 应用程序，就完美地解决了问题，但是 Qt6 程序似乎会缩放地过大，暂时无解</p>
+<h3 id="4-Qt-应用程序主题问题"><a href="#4-Qt-应用程序主题问题" class="headerlink" title="4. Qt 应用程序主题问题"></a>4. Qt 应用程序主题问题</h3><p>安装 <code>qt5ct qt6ct</code> 和需要的主题，编辑<code>.profile</code>: <code>export QT_QPA_PLATFORMTHEME=qt5ct</code></p>
+<h3 id="存在的问题"><a href="#存在的问题" class="headerlink" title="存在的问题"></a>存在的问题</h3><ol>
+<li>花屏问题的复现</li>
+<li>Qt6 缩放过大</li>
+<li>Wayland下Qt应用程序窗口边框不能缩放，且没有阴影（导致分辨不清窗口边缘）</li>
+</ol>
+
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+          <div class="post-tags">
+              <a href="/tags/%E9%A2%93%E5%BA%9F/" rel="tag"># 颓废</a>
+              <a href="/tags/Linux/" rel="tag"># Linux</a>
+              <a href="/tags/%E6%8A%80%E6%9C%AF/" rel="tag"># 技术</a>
+          </div>
+
+        
+
+          <div class="post-nav">
+            <div class="post-nav-item">
+                <a href="/2024/04/30/Thoughts-of-Sukasuak/" rel="prev" title="关于《末日时在做什么？有没有空？可以来拯救吗？》的一点杂感">
+                  <i class="fa fa-angle-left"></i> 关于《末日时在做什么？有没有空？可以来拯救吗？》的一点杂感
+                </a>
+            </div>
+            <div class="post-nav-item">
+            </div>
+          </div>
+    </footer>
+  </article>
+</div>
+
+
+
+
+
+
+</div>
+  </main>
+
+  <footer class="footer">
+    <div class="footer-inner">
+
+  <div class="copyright">
+    &copy; 
+    <span itemprop="copyrightYear">2024</span>
+    <span class="with-love">
+      <i class="fa fa-heart"></i>
+    </span>
+    <span class="author" itemprop="copyrightHolder">unsigned char</span>
+  </div>
+  <div class="powered-by">由 <a href="https://hexo.io/" rel="noopener" target="_blank">Hexo</a> & <a href="https://theme-next.js.org/muse/" rel="noopener" target="_blank">NexT.Muse</a> 强力驱动
+  </div>
+
+    </div>
+  </footer>
+
+  
+  <div class="toggle sidebar-toggle" role="button">
+    <span class="toggle-line"></span>
+    <span class="toggle-line"></span>
+    <span class="toggle-line"></span>
+  </div>
+  <div class="sidebar-dimmer"></div>
+  <div class="back-to-top" role="button" aria-label="返回顶部">
+    <i class="fa fa-arrow-up fa-lg"></i>
+    <span>0%</span>
+  </div>
+
+<noscript>
+  <div class="noscript-warning">Theme NexT works best with JavaScript enabled</div>
+</noscript>
+
+
+  
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/animejs/3.2.1/anime.min.js" integrity="sha256-XL2inqUJaslATFnHdJOi9GfQ60on8Wx1C2H8DYiN1xY=" crossorigin="anonymous"></script>
+<script src="/js/comments.js"></script><script src="/js/utils.js"></script><script src="/js/motion.js"></script><script src="/js/schemes/muse.js"></script><script src="/js/next-boot.js"></script>
+
+  
+
+
+
+
+
+
+  
+
+
+
+
+  
+
+  <script class="next-config" data-name="enableMath" type="application/json">true</script><script class="next-config" data-name="mathjax" type="application/json">{"enable":true,"tags":"none","js":{"url":"https://cdnjs.cloudflare.com/ajax/libs/mathjax/3.2.2/es5/tex-mml-chtml.js","integrity":"sha256-MASABpB4tYktI2Oitl4t+78w/lyA+D7b/s9GEP0JOGI="}}</script>
+<script src="/js/third-party/math/mathjax.js"></script>
+
+
+
+</body>
+</html>
