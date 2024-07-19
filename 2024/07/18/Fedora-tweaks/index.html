@@ -1,0 +1,351 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width">
+<meta name="theme-color" content="#222" media="(prefers-color-scheme: light)">
+<meta name="theme-color" content="#222" media="(prefers-color-scheme: dark)"><meta name="generator" content="Hexo 7.3.0">
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png">
+  <link rel="mask-icon" href="/images/logo.svg" color="#222">
+
+<link rel="stylesheet" href="/css/main.css">
+
+
+
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" integrity="sha256-wiz7ZSCn/btzhjKDQBms9Hx4sSeUYsDrTLg7roPstac=" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.1.1/animate.min.css" integrity="sha256-PR7ttpcvz8qrF57fur/yAx1qXMFJeJFiA6pSzWi0OIE=" crossorigin="anonymous">
+
+<script class="next-config" data-name="main" type="application/json">{"hostname":"zhangyaoan.github.io","root":"/","images":"/images","scheme":"Muse","darkmode":true,"version":"8.19.2","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12},"copycode":{"enable":false,"style":null},"fold":{"enable":false,"height":500},"bookmark":{"enable":false,"color":"#222","save":"auto"},"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"stickytabs":false,"motion":{"enable":true,"async":false,"transition":{"menu_item":"fadeInDown","post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"i18n":{"placeholder":"搜索...","empty":"没有找到任何搜索结果：${query}","hits_time":"找到 ${hits} 个搜索结果（用时 ${time} 毫秒）","hits":"找到 ${hits} 个搜索结果"}}</script><script src="/js/config.js"></script>
+
+    <meta name="description" content="Fedora + Gnome 坑很多，这里是我在使用 Fedora 中遇到的一些坑和解决的方案 这其中的很多 bug 都具有一定的随机性（很多是我在 Google 上使用英文寻找了半天才找到同样的问题，有的甚至需要亲自向开发者反映）。所以这仍然仅仅是个人记录，其中的解决方案仅供日后备查，不保证可用，请读者（如果有的话）谨慎辨析">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Fedora折腾记">
+<meta property="og:url" content="https://zhangyaoan.github.io/2024/07/18/Fedora-tweaks/index.html">
+<meta property="og:site_name" content="蒟蒻のBlog">
+<meta property="og:description" content="Fedora + Gnome 坑很多，这里是我在使用 Fedora 中遇到的一些坑和解决的方案 这其中的很多 bug 都具有一定的随机性（很多是我在 Google 上使用英文寻找了半天才找到同样的问题，有的甚至需要亲自向开发者反映）。所以这仍然仅仅是个人记录，其中的解决方案仅供日后备查，不保证可用，请读者（如果有的话）谨慎辨析">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="https://zhangyaoan.github.io/2024/07/18/Fedora-tweaks/touhou.png">
+<meta property="og:image" content="https://zhangyaoan.github.io/2024/07/18/Fedora-tweaks/bold-text.png">
+<meta property="article:published_time" content="2024-07-18T14:05:47.000Z">
+<meta property="article:modified_time" content="2024-07-19T15:28:14.960Z">
+<meta property="article:author" content="unsigned char">
+<meta property="article:tag" content="Linux">
+<meta property="article:tag" content="Fedora">
+<meta property="article:tag" content="技术">
+<meta property="article:tag" content="颓废">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://zhangyaoan.github.io/2024/07/18/Fedora-tweaks/touhou.png">
+
+
+<link rel="canonical" href="https://zhangyaoan.github.io/2024/07/18/Fedora-tweaks/">
+
+
+
+<script class="next-config" data-name="page" type="application/json">{"sidebar":"","isHome":false,"isPost":true,"lang":"zh-CN","comments":true,"permalink":"https://zhangyaoan.github.io/2024/07/18/Fedora-tweaks/","path":"2024/07/18/Fedora-tweaks/","title":"Fedora折腾记"}</script>
+
+<script class="next-config" data-name="calendar" type="application/json">""</script>
+<title>Fedora折腾记 | 蒟蒻のBlog</title>
+  
+
+
+
+
+
+
+
+
+  <noscript>
+    <link rel="stylesheet" href="/css/noscript.css">
+  </noscript>
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" class="use-motion">
+  <div class="headband"></div>
+
+  <main class="main">
+    <div class="column">
+      <header class="header" itemscope itemtype="http://schema.org/WPHeader"><div class="site-brand-container">
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="切换导航栏" role="button">
+        <span class="toggle-line"></span>
+        <span class="toggle-line"></span>
+        <span class="toggle-line"></span>
+    </div>
+  </div>
+
+  <div class="site-meta">
+
+    <a href="/" class="brand" rel="start">
+      <i class="logo-line"></i>
+      <p class="site-title">蒟蒻のBlog</p>
+      <i class="logo-line"></i>
+    </a>
+  </div>
+
+  <div class="site-nav-right">
+    <div class="toggle popup-trigger" aria-label="搜索" role="button">
+    </div>
+  </div>
+</div>
+
+
+
+<nav class="site-nav">
+  <ul class="main-menu menu"><li class="menu-item menu-item-home"><a href="/" rel="section"><i class="fa fa-home fa-fw"></i>首页</a></li><li class="menu-item menu-item-about"><a href="/about/" rel="section"><i class="fa fa-user fa-fw"></i>关于</a></li><li class="menu-item menu-item-tags"><a href="/tags/" rel="section"><i class="fa fa-tags fa-fw"></i>标签</a></li><li class="menu-item menu-item-archives"><a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>归档</a></li>
+  </ul>
+</nav>
+
+
+
+
+</header>
+        
+  
+  <aside class="sidebar">
+
+    <div class="sidebar-inner sidebar-nav-active sidebar-toc-active">
+      <ul class="sidebar-nav">
+        <li class="sidebar-nav-toc">
+          文章目录
+        </li>
+        <li class="sidebar-nav-overview">
+          站点概览
+        </li>
+      </ul>
+
+      <div class="sidebar-panel-container">
+        <!--noindex-->
+        <div class="post-toc-wrap sidebar-panel">
+            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%88%86%E6%95%B0%E7%BC%A9%E6%94%BE-fractional-scaling"><span class="nav-number">1.</span> <span class="nav-text">分数缩放 (fractional scaling)</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E4%BB%8D%E7%84%B6%E5%AD%98%E5%9C%A8%E7%9A%84%E9%97%AE%E9%A2%98"><span class="nav-number">1.1.</span> <span class="nav-text">仍然存在的问题</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E7%BE%8E%E5%8C%96"><span class="nav-number">2.</span> <span class="nav-text">美化</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#Qt-%E5%BA%94%E7%94%A8%E7%A8%8B%E5%BA%8F"><span class="nav-number">2.1.</span> <span class="nav-text">Qt 应用程序</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#%E5%AD%97%E4%BD%93%E9%97%AE%E9%A2%98"><span class="nav-number">2.1.1.</span> <span class="nav-text">字体问题</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E7%AA%97%E5%8F%A3%E5%9C%86%E8%A7%92"><span class="nav-number">2.2.</span> <span class="nav-text">窗口圆角</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%9D%82%E9%A1%B9"><span class="nav-number">3.</span> <span class="nav-text">杂项</span></a></li></ol></div>
+        </div>
+        <!--/noindex-->
+
+        <div class="site-overview-wrap sidebar-panel">
+          <div class="site-author animated" itemprop="author" itemscope itemtype="http://schema.org/Person">
+    <img class="site-author-image" itemprop="image" alt="unsigned char"
+      src="/images/user_avatar.webp">
+  <p class="site-author-name" itemprop="name">unsigned char</p>
+  <div class="site-description" itemprop="description">unsigned char's blog</div>
+</div>
+<div class="site-state-wrap animated">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+        <a href="/archives/">
+          <span class="site-state-item-count">7</span>
+          <span class="site-state-item-name">日志</span>
+        </a>
+      </div>
+      <div class="site-state-item site-state-tags">
+          <a href="/tags/">
+        <span class="site-state-item-count">12</span>
+        <span class="site-state-item-name">标签</span></a>
+      </div>
+  </nav>
+</div>
+  <div class="links-of-author animated">
+      <span class="links-of-author-item">
+        <a href="https://github.com/ZhangYaoan" title="GitHub → https:&#x2F;&#x2F;github.com&#x2F;ZhangYaoan" rel="noopener me" target="_blank"><i class="fab fa-github fa-fw"></i>GitHub</a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="https://www.luogu.com.cn/user/421773" title="Luogu → https:&#x2F;&#x2F;www.luogu.com.cn&#x2F;user&#x2F;421773" rel="noopener me" target="_blank">Luogu</a>
+      </span>
+  </div>
+
+        </div>
+      </div>
+    </div>
+
+    
+  </aside>
+
+
+    </div>
+
+    <div class="main-inner post posts-expand">
+
+
+  
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="https://zhangyaoan.github.io/2024/07/18/Fedora-tweaks/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/user_avatar.webp">
+      <meta itemprop="name" content="unsigned char">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="蒟蒻のBlog">
+      <meta itemprop="description" content="unsigned char's blog">
+    </span>
+
+    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
+      <meta itemprop="name" content="Fedora折腾记 | 蒟蒻のBlog">
+      <meta itemprop="description" content="">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          Fedora折腾记
+        </h1>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">发表于</span>
+
+      <time title="创建时间：2024-07-18 22:05:47" itemprop="dateCreated datePublished" datetime="2024-07-18T22:05:47+08:00">2024-07-18</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar-check"></i>
+      </span>
+      <span class="post-meta-item-text">更新于</span>
+      <time title="修改时间：2024-07-19 23:28:14" itemprop="dateModified" datetime="2024-07-19T23:28:14+08:00">2024-07-19</time>
+    </span>
+
+  
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody"><blockquote>
+<p>Fedora + Gnome 坑很多，这里是我在使用 Fedora 中遇到的一些坑和解决的方案</p>
+<p>这其中的很多 bug 都具有一定的随机性（很多是我在 Google 上使用英文寻找了半天才找到同样的问题，有的甚至需要亲自向开发者反映）。<br>所以这仍然仅仅是个人记录，其中的解决方案仅供日后备查，不保证可用，请读者（如果有的话）谨慎辨析</p>
+</blockquote>
+<span id="more"></span>
+
+<h2 id="分数缩放-fractional-scaling"><a href="#分数缩放-fractional-scaling" class="headerlink" title="分数缩放 (fractional scaling)"></a>分数缩放 (fractional scaling)</h2><p>Gnome 至今仍不正式支持分数缩放，仅有一个实验性功能提供了<strong>Wayland 应用程序</strong>的分数缩放（开启方法：<code>gsettings set org.gnome.mutter experimental-features &quot;[&#39;scale-monitor-framebuffer&#39;]&quot;</code>）</p>
+<p>但是在这种情况下 Xwayland app 会变得非常模糊（包括著名的 <code>vlc</code>），这显然不是我们需要的</p>
+<p>于是我们就需要安装 <code>taaem/mutter-xwayland-fractional-scaling</code> COPR 中 Patch 过的 <code>mutter</code>（Patch 来源于 <code>mutter</code> 的一个尚未 merge 的 PR），根据<a target="_blank" rel="noopener" href="https://copr.fedorainfracloud.org/coprs/taaem/mutter-xwayland-fractional-scaling/">COPR的描述</a>就可以了</p>
+<h3 id="仍然存在的问题"><a href="#仍然存在的问题" class="headerlink" title="仍然存在的问题"></a>仍然存在的问题</h3><p>实际上，Gnome 至今都不支持<strong>真正的</strong>分数缩放，目前的分数缩放其实是先将显示器分辨率拉伸，以200%渲染后再缩小（P.S. GTK4 似乎正在支持真·分数缩放），这不仅会导致 GPU 资源的浪费，还会使<code>virt-manager</code> <code>gnome-box</code> 等需要像素对齐的应用程序出现问题（如 <code>virt-manager</code> 中的虚拟机分辨率过高等）</p>
+<p><code>xwayland-native-scaling</code> feature 也存在同样的问题（这似乎与 KDE 上同样功能的行为不同），这导致我在 <code>wine</code> 上运行的游戏以3072×1728的分辨率渲染（1920×1080分辨率的屏幕，125%缩放），而且导致某些比较老旧游戏由于窗口过小而完全不能玩（比如东方几乎全系列）</p>
+<p><img src="/2024/07/18/Fedora-tweaks/touhou.png" alt="th08"></p>
+<h2 id="美化"><a href="#美化" class="headerlink" title="美化"></a>美化</h2><p>确切的说其实不是美化，只是让系统的 UI 更加统一</p>
+<h3 id="Qt-应用程序"><a href="#Qt-应用程序" class="headerlink" title="Qt 应用程序"></a>Qt 应用程序</h3><p>使用 <code>qt5ct</code> <code>qt6ct</code> 加上 <code>kvantum</code> 配合 <a target="_blank" rel="noopener" href="https://github.com/vinceliuice/Colloid-kde"><code>Colloid-kde</code></a> 主题（一个很像 Libadwaita 的 Kvantum Qt 主题，虽然很多 UI 元素的样式不同，但是整体风格很搭）</p>
+<ul>
+<li>为什么不用 <code>KvLibdwaita</code>：这个主题目前的版本存在很大的问题，行编辑器和下拉框的颜色和窗口背景颜色完全相同，导致了很多应用程序不可用</li>
+<li>为什么不用 <code>QGnomePlatform</code>：首先这个项目已经不再开发也没有适配 Libadwaita 主题，仍然需要自己搞主题；而且会导致其他问题</li>
+</ul>
+<h4 id="字体问题"><a href="#字体问题" class="headerlink" title="字体问题"></a>字体问题</h4><p>所有 Qt 应用程序中应该上粗体字的地方字体字重都过大，导致文本（尤其是中文文本）几乎不可读</p>
+<p><img src="/2024/07/18/Fedora-tweaks/bold-text.png" alt="bold-text"></p>
+<p>经调查，发现这似乎是 Cantarell 字体（Gnome的默认字体）的问题，与可变字重（VF）有关，而且是2020年就出现的老bug（似乎是由于不能在所有情况下都能复现而没有修复，不知道为什么我碰上了），当时的解决方案是更换系统字体。然而我经过测试，Noto CJK 似乎也存在同样问题，无奈之下只能使用上古字体文泉驿微米黑（正黑也行，但是太丑）</p>
+<p>这时就需要祭出 <code>qt5ct</code> 和 <code>qt6ct</code> 了，如果使用默认的 <code>qgnomeplatform</code> 则不能单独更改 Qt 应用程序的字体（将文泉驿应用为系统默认字体也不是不行，但是我觉得很丑）</p>
+<p>编辑 <code>~\.config\environment.d\qt.conf</code> 并修改 <code>qt5ct</code> 和 <code>qt6ct</code> 中的字体设置后，重启就可以了</p>
+<figure class="highlight ini"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># QT_QPA_PLATFORMTHEME=&#x27;gnome&#x27; # 需要更改全局字体</span></span><br><span class="line"><span class="comment"># QT_STYLE_OVERRIDE=kvantum</span></span><br><span class="line"><span class="attr">QT_QPA_PLATFORMTHEME</span>=qt5ct</span><br><span class="line"><span class="attr">XCURSOR_THEME</span>=YOUR_CURSOR_THEME_NAME</span><br><span class="line"><span class="comment"># 更改 Qt6 应用程序的光标主题（如果有），默认情况下 Qt6 应用程序的光标是极丑的系统默认光标</span></span><br></pre></td></tr></table></figure>
+
+<h3 id="窗口圆角"><a href="#窗口圆角" class="headerlink" title="窗口圆角"></a>窗口圆角</h3><p>可以使用<a href="%60https://github.com/flexagoon/rounded-window-corners.git%60">这个</a>扩展</p>
+<p>但是似乎有不少bug</p>
+<h2 id="杂项"><a href="#杂项" class="headerlink" title="杂项"></a>杂项</h2><p>VScode 貌似默认使用 XWayland，可以启用实验性功能来支持 Wayland，但是在我这输入法没法用（XWayland 下候选框会到处乱飘，但是能用）</p>
+<p>似乎有人已经解决了这个问题，但是在我这里没有成功</p>
+
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+          <div class="post-tags">
+              <a href="/tags/Linux/" rel="tag"># Linux</a>
+              <a href="/tags/Fedora/" rel="tag"># Fedora</a>
+              <a href="/tags/%E6%8A%80%E6%9C%AF/" rel="tag"># 技术</a>
+              <a href="/tags/%E9%A2%93%E5%BA%9F/" rel="tag"># 颓废</a>
+          </div>
+
+        
+
+          <div class="post-nav">
+            <div class="post-nav-item">
+                <a href="/2024/07/18/Fedora-useful-software/" rel="prev" title="Fedora Linux 中的实用软件">
+                  <i class="fa fa-angle-left"></i> Fedora Linux 中的实用软件
+                </a>
+            </div>
+            <div class="post-nav-item">
+            </div>
+          </div>
+    </footer>
+  </article>
+</div>
+
+
+
+
+
+
+</div>
+  </main>
+
+  <footer class="footer">
+    <div class="footer-inner">
+
+  <div class="copyright">
+    &copy; 
+    <span itemprop="copyrightYear">2024</span>
+    <span class="with-love">
+      <i class="fa fa-heart"></i>
+    </span>
+    <span class="author" itemprop="copyrightHolder">unsigned char</span>
+  </div>
+  <div class="powered-by">由 <a href="https://hexo.io/" rel="noopener" target="_blank">Hexo</a> & <a href="https://theme-next.js.org/muse/" rel="noopener" target="_blank">NexT.Muse</a> 强力驱动
+  </div>
+
+    </div>
+  </footer>
+
+  
+  <div class="toggle sidebar-toggle" role="button">
+    <span class="toggle-line"></span>
+    <span class="toggle-line"></span>
+    <span class="toggle-line"></span>
+  </div>
+  <div class="sidebar-dimmer"></div>
+  <div class="back-to-top" role="button" aria-label="返回顶部">
+    <i class="fa fa-arrow-up fa-lg"></i>
+    <span>0%</span>
+  </div>
+
+<noscript>
+  <div class="noscript-warning">Theme NexT works best with JavaScript enabled</div>
+</noscript>
+
+
+  
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/animejs/3.2.1/anime.min.js" integrity="sha256-XL2inqUJaslATFnHdJOi9GfQ60on8Wx1C2H8DYiN1xY=" crossorigin="anonymous"></script>
+<script src="/js/comments.js"></script><script src="/js/utils.js"></script><script src="/js/motion.js"></script><script src="/js/schemes/muse.js"></script><script src="/js/next-boot.js"></script>
+
+  
+
+
+
+
+
+
+  
+
+
+
+
+  
+
+  <script class="next-config" data-name="enableMath" type="application/json">true</script><script class="next-config" data-name="mathjax" type="application/json">{"enable":true,"tags":"none","js":{"url":"https://cdnjs.cloudflare.com/ajax/libs/mathjax/3.2.2/es5/tex-mml-chtml.js","integrity":"sha256-MASABpB4tYktI2Oitl4t+78w/lyA+D7b/s9GEP0JOGI="}}</script>
+<script src="/js/third-party/math/mathjax.js"></script>
+
+
+
+</body>
+</html>
