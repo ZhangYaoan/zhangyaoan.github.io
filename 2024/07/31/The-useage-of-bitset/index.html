@@ -20,31 +20,27 @@
 
 <script class="next-config" data-name="main" type="application/json">{"hostname":"zhangyaoan.github.io","root":"/","images":"/images","scheme":"Muse","darkmode":true,"version":"8.19.2","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12},"copycode":{"enable":false,"style":null},"fold":{"enable":false,"height":500},"bookmark":{"enable":false,"color":"#222","save":"auto"},"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"stickytabs":false,"motion":{"enable":true,"async":false,"transition":{"menu_item":"fadeInDown","post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"i18n":{"placeholder":"搜索...","empty":"没有找到任何搜索结果：${query}","hits_time":"找到 ${hits} 个搜索结果（用时 ${time} 毫秒）","hits":"找到 ${hits} 个搜索结果"}}</script><script src="/js/config.js"></script>
 
-    <meta name="description" content="最近将电脑系统换成了 Fedora Linux，由于版权和其他的一些原因，Fedora 官方仓库似乎缺乏不少软件，某些软件安装似乎不是很容易。在此记录一下我在 Fedora 中常用的软件 仅作个人备份，以供日后查询，不能保证其中内容的可用性">
+    <meta name="description" content="在 $SDSC$ 从传奇 OIer $QLR$ 处学到的 std::bitset 的神奇用法，可以让你的暴力跑得飞快 TODO">
 <meta property="og:type" content="article">
-<meta property="og:title" content="Fedora Linux 中的实用软件">
-<meta property="og:url" content="https://zhangyaoan.github.io/2024/07/18/Fedora-useful-software/index.html">
+<meta property="og:title" content="暴力碾标算，$n^2$过十万 —— bitset 的妙用">
+<meta property="og:url" content="https://zhangyaoan.github.io/2024/07/31/The-useage-of-bitset/index.html">
 <meta property="og:site_name" content="蒟蒻のBlog">
-<meta property="og:description" content="最近将电脑系统换成了 Fedora Linux，由于版权和其他的一些原因，Fedora 官方仓库似乎缺乏不少软件，某些软件安装似乎不是很容易。在此记录一下我在 Fedora 中常用的软件 仅作个人备份，以供日后查询，不能保证其中内容的可用性">
+<meta property="og:description" content="在 $SDSC$ 从传奇 OIer $QLR$ 处学到的 std::bitset 的神奇用法，可以让你的暴力跑得飞快 TODO">
 <meta property="og:locale" content="zh_CN">
-<meta property="article:published_time" content="2024-07-18T13:05:44.000Z">
-<meta property="article:modified_time" content="2024-07-18T15:39:27.795Z">
+<meta property="article:published_time" content="2024-07-31T06:25:28.000Z">
+<meta property="article:modified_time" content="2024-08-02T13:31:07.355Z">
 <meta property="article:author" content="unsigned char">
-<meta property="article:tag" content="Linux">
-<meta property="article:tag" content="Fedora">
-<meta property="article:tag" content="技术">
-<meta property="article:tag" content="颓废">
 <meta name="twitter:card" content="summary">
 
 
-<link rel="canonical" href="https://zhangyaoan.github.io/2024/07/18/Fedora-useful-software/">
+<link rel="canonical" href="https://zhangyaoan.github.io/2024/07/31/The-useage-of-bitset/">
 
 
 
-<script class="next-config" data-name="page" type="application/json">{"sidebar":"","isHome":false,"isPost":true,"lang":"zh-CN","comments":true,"permalink":"https://zhangyaoan.github.io/2024/07/18/Fedora-useful-software/","path":"2024/07/18/Fedora-useful-software/","title":"Fedora Linux 中的实用软件"}</script>
+<script class="next-config" data-name="page" type="application/json">{"sidebar":"","isHome":false,"isPost":true,"lang":"zh-CN","comments":true,"permalink":"https://zhangyaoan.github.io/2024/07/31/The-useage-of-bitset/","path":"2024/07/31/The-useage-of-bitset/","title":"暴力碾标算，$n^2$过十万 —— bitset 的妙用"}</script>
 
 <script class="next-config" data-name="calendar" type="application/json">""</script>
-<title>Fedora Linux 中的实用软件 | 蒟蒻のBlog</title>
+<title>暴力碾标算，$n^2$过十万 —— bitset 的妙用 | 蒟蒻のBlog</title>
   
 
 
@@ -103,7 +99,7 @@
   
   <aside class="sidebar">
 
-    <div class="sidebar-inner sidebar-nav-active sidebar-toc-active">
+    <div class="sidebar-inner sidebar-overview-active">
       <ul class="sidebar-nav">
         <li class="sidebar-nav-toc">
           文章目录
@@ -116,7 +112,6 @@
       <div class="sidebar-panel-container">
         <!--noindex-->
         <div class="post-toc-wrap sidebar-panel">
-            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#Fedora-COPRs-%E7%AC%AC%E4%B8%89%E6%96%B9%E8%BD%AF%E4%BB%B6%E6%BA%90"><span class="nav-number">1.</span> <span class="nav-text">Fedora COPRs &amp; 第三方软件源</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Gnome-Shell-%E6%89%A9%E5%B1%95"><span class="nav-number">2.</span> <span class="nav-text">Gnome Shell 扩展</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E7%BE%8E%E5%8C%96"><span class="nav-number">3.</span> <span class="nav-text">美化</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#Gtk3-%E4%B8%BB%E9%A2%98"><span class="nav-number">3.1.</span> <span class="nav-text">Gtk3 主题</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%9B%BE%E6%A0%87%E4%B8%BB%E9%A2%98"><span class="nav-number">3.2.</span> <span class="nav-text">图标主题</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E8%A7%86%E9%A2%91%E6%92%AD%E6%94%BE"><span class="nav-number">4.</span> <span class="nav-text">视频播放</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#H-264%E7%A1%AC%E4%BB%B6%E8%A7%A3%E7%A0%81"><span class="nav-number">4.1.</span> <span class="nav-text">H.264硬件解码</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E9%9F%B3%E9%A2%91%E6%92%AD%E6%94%BE"><span class="nav-number">5.</span> <span class="nav-text">音频播放</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%9D%82%E9%A1%B9"><span class="nav-number">6.</span> <span class="nav-text">杂项</span></a></li></ol></div>
         </div>
         <!--/noindex-->
 
@@ -172,7 +167,7 @@
   
 
   <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="https://zhangyaoan.github.io/2024/07/18/Fedora-useful-software/">
+    <link itemprop="mainEntityOfPage" href="https://zhangyaoan.github.io/2024/07/31/The-useage-of-bitset/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="image" content="/images/user_avatar.webp">
@@ -185,12 +180,12 @@
     </span>
 
     <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
-      <meta itemprop="name" content="Fedora Linux 中的实用软件 | 蒟蒻のBlog">
+      <meta itemprop="name" content="暴力碾标算，$n^2$过十万 —— bitset 的妙用 | 蒟蒻のBlog">
       <meta itemprop="description" content="">
     </span>
       <header class="post-header">
         <h1 class="post-title" itemprop="name headline">
-          Fedora Linux 中的实用软件
+          暴力碾标算，$n^2$过十万 —— bitset 的妙用
         </h1>
 
         <div class="post-meta-container">
@@ -200,9 +195,15 @@
         <i class="far fa-calendar"></i>
       </span>
       <span class="post-meta-item-text">发表于</span>
-      
 
-      <time title="创建时间：2024-07-18 21:05:44 / 修改时间：23:39:27" itemprop="dateCreated datePublished" datetime="2024-07-18T21:05:44+08:00">2024-07-18</time>
+      <time title="创建时间：2024-07-31 14:25:28" itemprop="dateCreated datePublished" datetime="2024-07-31T14:25:28+08:00">2024-07-31</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar-check"></i>
+      </span>
+      <span class="post-meta-item-text">更新于</span>
+      <time title="修改时间：2024-08-02 21:31:07" itemprop="dateModified" datetime="2024-08-02T21:31:07+08:00">2024-08-02</time>
     </span>
 
   
@@ -215,45 +216,13 @@
     
     
     <div class="post-body" itemprop="articleBody"><blockquote>
-<p>最近将电脑系统换成了 Fedora Linux，由于版权和其他的一些原因，Fedora 官方仓库似乎缺乏不少软件，某些软件安装似乎不是很容易。在此记录一下我在 Fedora 中常用的软件</p>
-<p>仅作个人备份，以供日后查询，不能保证其中内容的可用性</p>
+<p>在 $SDSC$ 从传奇 OIer $QLR$ 处学到的 <code>std::bitset</code> 的神奇用法，可以让你的暴力跑得飞快</p>
+<p>TODO</p>
 </blockquote>
 <span id="more"></span>
 
-<h2 id="Fedora-COPRs-第三方软件源"><a href="#Fedora-COPRs-第三方软件源" class="headerlink" title="Fedora COPRs &amp; 第三方软件源"></a>Fedora COPRs &amp; 第三方软件源</h2><ol>
-<li>RPM Fusion: <code>yum install --nogpgcheck https://mirrors.tuna.tsinghua.edu.cn/rpmfusion/free/fedora/rpmfusion-free-release-$(rpm -E %fedora).noarch.rpm</code> 包含 Fedora 官方不愿意发布的软件，例如 <code>VirtualBox</code> 和后面提到的硬件编解码器</li>
-<li><code>taaem/mutter-xwayland-fractional-scaling</code> <a target="_blank" rel="noopener" href="https://copr.fedorainfracloud.org/coprs/taaem/mutter-xwayland-fractional-scaling/">使用方法</a> 启用 mutter 尚未 merge 的 PR 中对 XWayland 原生缩放的支持</li>
-<li><code>umutd3401/extension-manager</code> 包含 <code>extension-manager</code></li>
-<li><code>peterwu/rendezvous</code> 中的 <code>bibata-cursor-themes</code></li>
-<li>VSCodium: 从官方网站中添加</li>
-</ol>
-<h2 id="Gnome-Shell-扩展"><a href="#Gnome-Shell-扩展" class="headerlink" title="Gnome Shell 扩展"></a>Gnome Shell 扩展</h2><ul>
-<li>User Themes</li>
-<li>Blur my Shell</li>
-<li>Dash to Dock</li>
-<li>Removable Driver Menu</li>
-<li>Resource Monitor</li>
-<li>Alphabetical App Grid （按字母顺序排列App，Gnome原来的排列方式很混乱）</li>
-<li>Round Windows Corner (Reborn)<ul>
-<li>克隆仓库 <code>https://github.com/flexagoon/rounded-window-corners.git</code></li>
-<li>安装依赖 <code>nodejs</code>, <code>npm</code>, <code>gettext</code> 和 <code>just</code></li>
-</ul>
-</li>
-<li>Quick Setting Tweaker</li>
-<li>User Avatar In Quick Settings</li>
-<li>Just Perfection</li>
-<li>(Freon)</li>
-</ul>
-<h2 id="美化"><a href="#美化" class="headerlink" title="美化"></a>美化</h2><h3 id="Gtk3-主题"><a href="#Gtk3-主题" class="headerlink" title="Gtk3 主题"></a>Gtk3 主题</h3><p><code>adw-gtk3-theme</code></p>
-<h3 id="图标主题"><a href="#图标主题" class="headerlink" title="图标主题"></a>图标主题</h3><p><code>papirus-icon-theme</code>, <code>papirus-icon-theme-dark</code></p>
-<h2 id="视频播放"><a href="#视频播放" class="headerlink" title="视频播放"></a>视频播放</h2><p>播放器：<code>vlc</code> 或 <code>celluloid</code> 或 <code>mpv</code> （仅限CLI）</p>
-<p>需要从 RPM Fusion 中安装 <code>ffmpeg</code> 来获取 H.264 编解码器</p>
-<h3 id="H-264硬件解码"><a href="#H-264硬件解码" class="headerlink" title="H.264硬件解码"></a>H.264硬件解码</h3><p>从 RPM Fusion 中安装 <code>ffmpeg</code>, <code>libavcodec-freeworld</code>, <code>mesa-va-drivers-freeworld</code> 和 <code>mesa-vdpau-drivers-freeworld</code></p>
-<p>如果提示存在冲突等原因无法安装，可以尝试</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">sudo dnf swap mesa-va-drivers mesa-va-drivers-freeworld</span><br><span class="line">sudo dnf swap mesa-vdpau-drivers mesa-vdpau-drivers-freeworld</span><br></pre></td></tr></table></figure>
-
-<h2 id="音频播放"><a href="#音频播放" class="headerlink" title="音频播放"></a>音频播放</h2><p><code>qmmp</code> 一个强大的播放器，基于 <code>Qt</code> ，可以在 <code>cur</code> 的辅助下播放 <code>flac</code></p>
-<h2 id="杂项"><a href="#杂项" class="headerlink" title="杂项"></a>杂项</h2><p><code>lukenukem/asus-linux</code> ASUS-Linux 项目，旨在为华硕笔记本（主要是ROG）提供 Linux 驱动支持（完全开源），在我的电脑上目前支持的功能是电池充电限制</p>
+<p>TODO</p>
+<p>正在调试代码 $QwQ$</p>
 
     </div>
 
@@ -262,25 +231,16 @@
     
 
     <footer class="post-footer">
-          <div class="post-tags">
-              <a href="/tags/Linux/" rel="tag"># Linux</a>
-              <a href="/tags/Fedora/" rel="tag"># Fedora</a>
-              <a href="/tags/%E6%8A%80%E6%9C%AF/" rel="tag"># 技术</a>
-              <a href="/tags/%E9%A2%93%E5%BA%9F/" rel="tag"># 颓废</a>
-          </div>
 
         
 
           <div class="post-nav">
             <div class="post-nav-item">
-                <a href="/2024/05/25/WSL-configure/" rel="prev" title="WSL折腾记">
-                  <i class="fa fa-angle-left"></i> WSL折腾记
+                <a href="/2024/07/18/Fedora-tweaks/" rel="prev" title="Fedora折腾记">
+                  <i class="fa fa-angle-left"></i> Fedora折腾记
                 </a>
             </div>
             <div class="post-nav-item">
-                <a href="/2024/07/18/Fedora-tweaks/" rel="next" title="Fedora折腾记">
-                  Fedora折腾记 <i class="fa fa-angle-right"></i>
-                </a>
             </div>
           </div>
     </footer>
