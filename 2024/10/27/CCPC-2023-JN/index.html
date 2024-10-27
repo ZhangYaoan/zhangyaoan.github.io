@@ -20,27 +20,30 @@
 
 <script class="next-config" data-name="main" type="application/json">{"hostname":"zhangyaoan.github.io","root":"/","images":"/images","scheme":"Muse","darkmode":true,"version":"8.19.2","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12},"copycode":{"enable":false,"style":null},"fold":{"enable":false,"height":500},"bookmark":{"enable":false,"color":"#222","save":"auto"},"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"stickytabs":false,"motion":{"enable":true,"async":false,"transition":{"menu_item":"fadeInDown","post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"i18n":{"placeholder":"搜索...","empty":"没有找到任何搜索结果：${query}","hits_time":"找到 ${hits} 个搜索结果（用时 ${time} 毫秒）","hits":"找到 ${hits} 个搜索结果"}}</script><script src="/js/config.js"></script>
 
-    <meta name="description" content="在 $SDSC$ 从传奇 OIer $QLR$ 处学到的 std::bitset 的神奇用法，可以让你的暴力跑得飞快 TODO">
+    <meta name="description" content="和 k_Sword 和 NAPeach 组队（QEFW_#kzn a.k.a. 企鹅访问坤）参加了 CCPC 2023 济南站，2AC 273 罚时，取得了 rk 313 &#x2F; 323 的好成绩，成功打铁 菜是原罪 QwQ">
 <meta property="og:type" content="article">
-<meta property="og:title" content="暴力碾标算，$n^2$过十万 —— bitset 的妙用">
-<meta property="og:url" content="https://zhangyaoan.github.io/2024/07/31/The-useage-of-bitset/index.html">
+<meta property="og:title" content="CCPC-2023-JN 打铁记">
+<meta property="og:url" content="https://zhangyaoan.github.io/2024/10/27/CCPC-2023-JN/index.html">
 <meta property="og:site_name" content="蒟蒻のBlog">
-<meta property="og:description" content="在 $SDSC$ 从传奇 OIer $QLR$ 处学到的 std::bitset 的神奇用法，可以让你的暴力跑得飞快 TODO">
+<meta property="og:description" content="和 k_Sword 和 NAPeach 组队（QEFW_#kzn a.k.a. 企鹅访问坤）参加了 CCPC 2023 济南站，2AC 273 罚时，取得了 rk 313 &#x2F; 323 的好成绩，成功打铁 菜是原罪 QwQ">
 <meta property="og:locale" content="zh_CN">
-<meta property="article:published_time" content="2024-07-31T06:25:28.000Z">
-<meta property="article:modified_time" content="2024-09-22T05:54:57.546Z">
+<meta property="article:published_time" content="2024-10-27T06:23:18.000Z">
+<meta property="article:modified_time" content="2024-10-27T10:59:33.862Z">
 <meta property="article:author" content="unsigned char">
+<meta property="article:tag" content="OI">
+<meta property="article:tag" content="XCPC">
+<meta property="article:tag" content="游记">
 <meta name="twitter:card" content="summary">
 
 
-<link rel="canonical" href="https://zhangyaoan.github.io/2024/07/31/The-useage-of-bitset/">
+<link rel="canonical" href="https://zhangyaoan.github.io/2024/10/27/CCPC-2023-JN/">
 
 
 
-<script class="next-config" data-name="page" type="application/json">{"sidebar":"","isHome":false,"isPost":true,"lang":"zh-CN","comments":true,"permalink":"https://zhangyaoan.github.io/2024/07/31/The-useage-of-bitset/","path":"2024/07/31/The-useage-of-bitset/","title":"暴力碾标算，$n^2$过十万 —— bitset 的妙用"}</script>
+<script class="next-config" data-name="page" type="application/json">{"sidebar":"","isHome":false,"isPost":true,"lang":"zh-CN","comments":true,"permalink":"https://zhangyaoan.github.io/2024/10/27/CCPC-2023-JN/","path":"2024/10/27/CCPC-2023-JN/","title":"CCPC-2023-JN 打铁记"}</script>
 
 <script class="next-config" data-name="calendar" type="application/json">""</script>
-<title>暴力碾标算，$n^2$过十万 —— bitset 的妙用 | 蒟蒻のBlog</title>
+<title>CCPC-2023-JN 打铁记 | 蒟蒻のBlog</title>
   
 
 
@@ -99,7 +102,7 @@
   
   <aside class="sidebar">
 
-    <div class="sidebar-inner sidebar-overview-active">
+    <div class="sidebar-inner sidebar-nav-active sidebar-toc-active">
       <ul class="sidebar-nav">
         <li class="sidebar-nav-toc">
           文章目录
@@ -112,6 +115,7 @@
       <div class="sidebar-panel-container">
         <!--noindex-->
         <div class="post-toc-wrap sidebar-panel">
+            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#Day-x-x-0"><span class="nav-number">1.</span> <span class="nav-text">Day $x\ (x &lt; 0)$</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Day-1"><span class="nav-number">2.</span> <span class="nav-text">Day 1</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Day-2"><span class="nav-number">3.</span> <span class="nav-text">Day 2</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#%E8%AE%B2%E8%AF%84-%E9%A2%98%E8%A7%A3"><span class="nav-number">3.0.1.</span> <span class="nav-text">讲评 &amp; 题解</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%80%BB%E7%BB%93-%E5%8F%8D%E6%80%9D"><span class="nav-number">3.1.</span> <span class="nav-text">总结 &amp; 反思</span></a></li></ol></li></ol></div>
         </div>
         <!--/noindex-->
 
@@ -167,7 +171,7 @@
   
 
   <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="https://zhangyaoan.github.io/2024/07/31/The-useage-of-bitset/">
+    <link itemprop="mainEntityOfPage" href="https://zhangyaoan.github.io/2024/10/27/CCPC-2023-JN/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="image" content="/images/user_avatar.webp">
@@ -180,12 +184,12 @@
     </span>
 
     <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
-      <meta itemprop="name" content="暴力碾标算，$n^2$过十万 —— bitset 的妙用 | 蒟蒻のBlog">
+      <meta itemprop="name" content="CCPC-2023-JN 打铁记 | 蒟蒻のBlog">
       <meta itemprop="description" content="">
     </span>
       <header class="post-header">
         <h1 class="post-title" itemprop="name headline">
-          暴力碾标算，$n^2$过十万 —— bitset 的妙用
+          CCPC-2023-JN 打铁记
         </h1>
 
         <div class="post-meta-container">
@@ -195,15 +199,9 @@
         <i class="far fa-calendar"></i>
       </span>
       <span class="post-meta-item-text">发表于</span>
+      
 
-      <time title="创建时间：2024-07-31 14:25:28" itemprop="dateCreated datePublished" datetime="2024-07-31T14:25:28+08:00">2024-07-31</time>
-    </span>
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-calendar-check"></i>
-      </span>
-      <span class="post-meta-item-text">更新于</span>
-      <time title="修改时间：2024-09-22 13:54:57" itemprop="dateModified" datetime="2024-09-22T13:54:57+08:00">2024-09-22</time>
+      <time title="创建时间：2024-10-27 14:23:18 / 修改时间：18:59:33" itemprop="dateCreated datePublished" datetime="2024-10-27T14:23:18+08:00">2024-10-27</time>
     </span>
 
   
@@ -216,13 +214,47 @@
     
     
     <div class="post-body" itemprop="articleBody"><blockquote>
-<p>在 $SDSC$ 从传奇 OIer $QLR$ 处学到的 <code>std::bitset</code> 的神奇用法，可以让你的暴力跑得飞快</p>
-<p>TODO</p>
+<p>和 k_Sword 和 NAPeach 组队（QEFW_#kzn a.k.a. 企鹅访问坤）参加了 CCPC 2023 济南站，2AC 273 罚时，取得了 rk 313 &#x2F; 323 的好成绩，成功打铁</p>
+<p>菜是原罪 QwQ</p>
 </blockquote>
 <span id="more"></span>
 
-<p>TODO</p>
-<p>正在调试代码 $QwQ$</p>
+<h2 id="Day-x-x-0"><a href="#Day-x-x-0" class="headerlink" title="Day $x\ (x &lt; 0)$"></a>Day $x\ (x &lt; 0)$</h2><p>很早就发出的通知了，本来因为我太菜，不想参加的</p>
+<p>QDEZ 运动会的前两天，我在走廊上遇见了 k_Sword 和 NAPeach，问我是否参加 CCPC，队名是 QEFW_#kzn（原来成员是 k_Sword, zzetheld, NAPeach，所以叫 <a target="_blank" rel="noopener" href="https://mzh.moegirl.org.cn/Kizuna(CeVIO)">#kzn</a>，但是 zzethld 不去，于是拉我去），于是我立刻答应了</p>
+<p>中文队名是在紧急的情况下 NAPeach 随便打的</p>
+<p>听说 XCPC 系列比赛可以带纸质资料，打印了很多<del>没用的</del>东西，最后似乎只有大质数表用上了</p>
+<h2 id="Day-1"><a href="#Day-1" class="headerlink" title="Day 1"></a>Day 1</h2><p>少女 CSP 中…</p>
+<p>晚上 CSP-S 结束后乘火车去济南，其中在去车站的路上把晚饭的粥洒了，耽误了一些时间</p>
+<p>火车上 NAPeach 在相邻车厢，路上一半时间在看 NAPeach 打东方（我是 STG 苦手 QWQ），一半时间在多多理财 <del>和我在 QDEZ 研学路上的一样</del></p>
+<p>23:30 左右到达，和 k_Sword 拼房</p>
+<h2 id="Day-2"><a href="#Day-2" class="headerlink" title="Day 2"></a>Day 2</h2><p>早上起的比较晚，发现 NAPeach 已经快到了</p>
+<p>8:10 左右到达比赛场地，快速进行了签到。有袋子鼠标垫等纪念品，这不比 ￥560 的 CSP-S 强？</p>
+<p>发现到太早了，zhub710 还没到，等到再次出去时，已经拍完照了，完美错过 QDEZ 拍照</p>
+<p>8:45 开始进场。比赛电脑很好，是 Ubuntu 22.04，包含 Code::Blocks 和 VSCode 等 IDE，好评。</p>
+<p>9:00 比赛正式开始，分工是 k_Sword 看 A-D，我 E-I，NAPeach J-M。</p>
+<p>k_Sword 迅速发现 A 是签到题，20min 写了暴力 Hash，在喜提 3 发罚时后 AC，签到成功</p>
+<p>我发现 F 似乎是组合数，感觉可做，写完后发现没过样例，手模发现思路假了，贡献我的第一个错解</p>
+<p>NAPeach 发现 J 是签到题，于 11:53 一发 AC，这是我们本场第二个也是最后一个 AC 🤣</p>
+<p>k_Sword 发现 B 似乎是大模拟，开始写 B 题，但是最终也没有写出</p>
+<p>距离比赛结束大概还有一个小时左右，我想到了一种 I 题的构造方法（I 是构造题），经过讨论和 Hack，没有发现问题，遂写完。交一发， TLE。检查发现在递归中开 <code>vector</code> ，添加 <code>reserve</code> 和关流同步，然后 WA 了。检查发现没有写挂，释怀地似了。错解++</p>
+<p>我们注意到 Python 自带 FFT 大整数，k_Sword 和 NAPeach 遂开始写 E，实际上是 k_Sword 简述思路，NAPeach 写 Python 代码。但是其分讨极其复杂，在贡献了 5 发罚时之后，最终仍没有写出来。</p>
+<p>喜提 rk 313 QwQ 🙃</p>
+<p>我似乎是全队最菜的啊，一个正解都没有贡献出来 QwQ</p>
+<h4 id="讲评-题解"><a href="#讲评-题解" class="headerlink" title="讲评 &amp; 题解"></a>讲评 &amp; 题解</h4><p>A, J 确实是 Very Easy，B, I 是 Easy，E, F 是 Easy-mid <del>说明我们的开题策略没问题</del></p>
+<p>B 是搜，k_Sword 没写递归，可能导致码量增大</p>
+<p>I 我的思路和正解已经比较接近了，但是没有考虑根的选择对答案的影响</p>
+<p>E 分讨有 7 种情况，k_Sword 和 NAPeach 只考虑了 6 种（但是实际上场切的人只有 48，还是比较恶心的）</p>
+<p>F 正解就是枚举，NAPeach 已经想到了，但是我认为复杂度不对（实际上是对的，证明似乎比较繁琐）。NAPeach 注意力太强了 %%%</p>
+<h3 id="总结-反思"><a href="#总结-反思" class="headerlink" title="总结 &amp; 反思"></a>总结 &amp; 反思</h3><ul>
+<li>团队合作不足<blockquote>
+<p>k_Sword: 我们中任何一个人单独写都不能只切两道题</p>
+</blockquote>
+</li>
+<li>做题策略有误。实际上我们几乎是三人开三题，每人分别想自己的题，没有花时间帮助队友验证和改进思路，导致我们写了很多假正解，浪费了宝贵的电脑使用时间</li>
+<li>电脑使用策略有误。实际上从 A 题之后，可能由于上述原因，我们每人都没有十足的把握，往往是在轮流使用电脑。特别是在最后一小时，k_Sword 和 NAPeach 在写 E，而我在写 I（实际上我几乎没有仔细分析 E 的各种情况），往往是我修改代码，测试发现不过之后就将电脑交给他们，之后再次轮换。这样看上去没问题，实际上则导致思路经常被打断，也不利于 Debug</li>
+<li>菜是原罪</li>
+</ul>
+<p>总之这次 CCPC 虽然打了铁，但是总体上还是很欢乐的。在比赛中看到了自己的不足，也算是有所收获，希望能给未来参加 XCPC 积累一点经验吧（话说我未来还要打 XCPC 吗？ QwQ）</p>
 
     </div>
 
@@ -231,19 +263,21 @@
     
 
     <footer class="post-footer">
+          <div class="post-tags">
+              <a href="/tags/OI/" rel="tag"># OI</a>
+              <a href="/tags/XCPC/" rel="tag"># XCPC</a>
+              <a href="/tags/%E6%B8%B8%E8%AE%B0/" rel="tag"># 游记</a>
+          </div>
 
         
 
           <div class="post-nav">
             <div class="post-nav-item">
-                <a href="/2024/07/18/Fedora-tweaks/" rel="prev" title="Fedora折腾记">
-                  <i class="fa fa-angle-left"></i> Fedora折腾记
+                <a href="/2024/07/31/The-useage-of-bitset/" rel="prev" title="暴力碾标算，$n^2$过十万 —— bitset 的妙用">
+                  <i class="fa fa-angle-left"></i> 暴力碾标算，$n^2$过十万 —— bitset 的妙用
                 </a>
             </div>
             <div class="post-nav-item">
-                <a href="/2024/10/27/CCPC-2023-JN/" rel="next" title="CCPC-2023-JN 打铁记">
-                  CCPC-2023-JN 打铁记 <i class="fa fa-angle-right"></i>
-                </a>
             </div>
           </div>
     </footer>
