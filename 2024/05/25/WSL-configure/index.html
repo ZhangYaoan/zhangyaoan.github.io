@@ -20,16 +20,16 @@
 
 <script class="next-config" data-name="main" type="application/json">{"hostname":"zhangyaoan.github.io","root":"/","images":"/images","scheme":"Muse","darkmode":true,"version":"8.19.2","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12},"copycode":{"enable":false,"style":null},"fold":{"enable":false,"height":500},"bookmark":{"enable":false,"color":"#222","save":"auto"},"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"stickytabs":false,"motion":{"enable":true,"async":false,"transition":{"menu_item":"fadeInDown","post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"i18n":{"placeholder":"搜索...","empty":"没有找到任何搜索结果：${query}","hits_time":"找到 ${hits} 个搜索结果（用时 ${time} 毫秒）","hits":"找到 ${hits} 个搜索结果"}}</script><script src="/js/config.js"></script>
 
-    <meta name="description" content="折腾WSL（颓废）的一点记录，其中前面的一部分是很久以前写的，从OneNote中提取出来的。当时一时兴起，折腾的是ArchLinux，但是后来很快就发现ArchLinux的坑太多，也没有官方支持，而且滚动更新不太适合和WSL搭配使用（我可不想每次打开电脑第一件事就是pacman -Syu，还要时不时处理滚挂的情况） 目前在用Debian，比ArchLinux稳定多了，但是仍然没有官方支持（好像是">
+    <meta name="description" content="折腾 WSL（颓废）的一点记录，其中前面的一部分是很久以前写的，从 OneNote 中提取出来的。当时一时兴起，折腾的是 ArchLinux，但是后来很快就发现 ArchLinux 的坑太多，也没有官方支持，而且滚动更新不太适合和 WSL 搭配使用（我可不想每次打开电脑第一件事就是 pacman -Syu，还要时不时处理滚挂的情况） 目前在用 Debian，比 ArchLinux 稳定多了，但是">
 <meta property="og:type" content="article">
 <meta property="og:title" content="WSL折腾记">
 <meta property="og:url" content="https://zhangyaoan.github.io/2024/05/25/WSL-configure/index.html">
 <meta property="og:site_name" content="蒟蒻のBlog">
-<meta property="og:description" content="折腾WSL（颓废）的一点记录，其中前面的一部分是很久以前写的，从OneNote中提取出来的。当时一时兴起，折腾的是ArchLinux，但是后来很快就发现ArchLinux的坑太多，也没有官方支持，而且滚动更新不太适合和WSL搭配使用（我可不想每次打开电脑第一件事就是pacman -Syu，还要时不时处理滚挂的情况） 目前在用Debian，比ArchLinux稳定多了，但是仍然没有官方支持（好像是">
+<meta property="og:description" content="折腾 WSL（颓废）的一点记录，其中前面的一部分是很久以前写的，从 OneNote 中提取出来的。当时一时兴起，折腾的是 ArchLinux，但是后来很快就发现 ArchLinux 的坑太多，也没有官方支持，而且滚动更新不太适合和 WSL 搭配使用（我可不想每次打开电脑第一件事就是 pacman -Syu，还要时不时处理滚挂的情况） 目前在用 Debian，比 ArchLinux 稳定多了，但是">
 <meta property="og:locale" content="zh_CN">
 <meta property="og:image" content="https://zhangyaoan.github.io/2024/05/25/WSL-configure/error0.png">
 <meta property="article:published_time" content="2024-05-25T15:12:39.000Z">
-<meta property="article:modified_time" content="2024-05-26T01:31:20.233Z">
+<meta property="article:modified_time" content="2024-11-03T05:19:06.015Z">
 <meta property="article:author" content="unsigned char">
 <meta property="article:tag" content="Linux">
 <meta property="article:tag" content="技术">
@@ -209,7 +209,7 @@
         <i class="far fa-calendar-check"></i>
       </span>
       <span class="post-meta-item-text">更新于</span>
-      <time title="修改时间：2024-05-26 09:31:20" itemprop="dateModified" datetime="2024-05-26T09:31:20+08:00">2024-05-26</time>
+      <time title="修改时间：2024-11-03 13:19:06" itemprop="dateModified" datetime="2024-11-03T13:19:06+08:00">2024-11-03</time>
     </span>
 
   
@@ -222,47 +222,47 @@
     
     
     <div class="post-body" itemprop="articleBody"><blockquote>
-<p>折腾WSL（<del>颓废</del>）的一点记录，其中前面的一部分是很久以前写的，从OneNote中提取出来的。当时一时兴起，折腾的是ArchLinux，但是后来很快就发现ArchLinux的坑太多，也没有官方支持，而且滚动更新不太适合和WSL搭配使用（我可不想每次打开电脑第一件事就是<code>pacman -Syu</code>，还要时不时处理滚挂的情况）</p>
-<p>目前在用Debian，比ArchLinux稳定多了，但是仍然没有官方支持（好像是？）</p>
-<p>最近又开始捣鼓GUI，又遇到了很多坑，填了一些，但是还要一些实在是搞不定。目前打算弃坑Debian，换回又官方支持的Ubuntu</p>
+<p>折腾 WSL（<del>颓废</del>）的一点记录，其中前面的一部分是很久以前写的，从 OneNote 中提取出来的。当时一时兴起，折腾的是 ArchLinux，但是后来很快就发现 ArchLinux 的坑太多，也没有官方支持，而且滚动更新不太适合和 WSL 搭配使用（我可不想每次打开电脑第一件事就是 <code>pacman -Syu</code>，还要时不时处理滚挂的情况）</p>
+<p>目前在用 Debian，比 ArchLinux 稳定多了，但是仍然没有官方支持（好像是？）</p>
+<p>最近又开始捣鼓 GUI，又遇到了很多坑，填了一些，但是还要一些实在是搞不定。目前打算弃坑 Debian，换回又官方支持的 Ubuntu</p>
 </blockquote>
 <span id="more"></span>
 
-<h2 id="WSL安装位置的移动"><a href="#WSL安装位置的移动" class="headerlink" title="WSL安装位置的移动"></a>WSL安装位置的移动</h2><pre><code>1. `&gt;&gt; wsl --export [发行版名] [输出目录]\[发行版名].tar` 导出当前发行版
-2. `&gt;&gt; wsl --unregister [发行版名]` 删除当前发行版
-3. `&gt;&gt; wsl --import [发行版名] [安装目录] [输出目录]\[发行版名].tar --version 2` 重新导入发行版
-4. `&gt;&gt; [发行版名].exe config --default-user[用户名]` 设置默认用户名为之前安装时的用户名（否则默认以root用户登录）
-5. 删除导出的tar文件（可选）
+<h2 id="WSL安装位置的移动"><a href="#WSL安装位置的移动" class="headerlink" title="WSL安装位置的移动"></a>WSL安装位置的移动</h2><pre><code>1. `wsl --export [发行版名] [输出目录]\[发行版名].tar` 导出当前发行版
+2. `wsl --unregister [发行版名]` 删除当前发行版
+3. `wsl --import [发行版名] [安装目录] [输出目录]\[发行版名].tar --version 2` 重新导入发行版
+4. `[发行版名].exe config --default-user[用户名]` 设置默认用户名为之前安装时的用户名（否则默认以root用户登录）
+5. 删除导出的 `.tar` 文件（可选）
 </code></pre>
-<h2 id="yay安装与使用的问题"><a href="#yay安装与使用的问题" class="headerlink" title="yay安装与使用的问题"></a>yay安装与使用的问题</h2><pre><code>6. 换源：在`/etc/pacman.d/mirrorlist`顶端添加`Server = [htt](https://mirrors.tuna.tsinghua.edu.cn/archlinux/$repo/os/$arch) ps://mirrors.tuna.tsinghua.edu.cn/archlinux/$repo/os/$arch`
-7. 添加archlinuxcn源：在`/etc/pacman.conf`底部添加
+<h2 id="yay安装与使用的问题"><a href="#yay安装与使用的问题" class="headerlink" title="yay安装与使用的问题"></a>yay安装与使用的问题</h2><pre><code>6. 换源：在 `/etc/pacman.d/mirrorlist` 顶端添加 `Server = [htt](https://mirrors.tuna.tsinghua.edu.cn/archlinux/$repo/os/$arch) ps://mirrors.tuna.tsinghua.edu.cn/archlinux/$repo/os/$arch`
+7. 添加 archlinuxcn 源：在 `/etc/pacman.conf` 底部添加
 <figure class="highlight ini"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="section">[archlinuxcn]</span></span><br><span class="line"></span><br><span class="line"><span class="attr">SigLevel</span> = Optional TrustAll</span><br><span class="line"></span><br><span class="line"><span class="attr">Server</span> = https://mirrors.tuna.tsinghua.edu.cn/archlinuxcn/<span class="variable">$arch</span></span><br></pre></td></tr></table></figure>
-8. 安装yay：`sudo pacman -S yay`
-9. EX: `database already registered`问题：将archlinuxcn源添加至错误的文件
-10. EX: 找不到yay包：没有添加archlinuxcn源
+8. 安装 yay：`sudo pacman -S yay`
+9. EX: `database already registered` 问题：将 archlinuxcn 源添加至错误的文件
+10. EX: 找不到 yay 包：没有添加 archlinuxcn 源
 </code></pre>
 <blockquote>
-<p>P.S. WSL似乎不适合与ArchLinux这种激进的滚动发行版搭配使用，已弃坑</p>
+<p>P.S. WSL 似乎不适合与 ArchLinux 这种激进的滚动发行版搭配使用，已弃坑</p>
 </blockquote>
 <hr>
-<p>以下均在Debian环境下</p>
+<p>以下均在 Debian 环境下</p>
 <h2 id="GUI-问题"><a href="#GUI-问题" class="headerlink" title="GUI 问题"></a>GUI 问题</h2><h3 id="1-花屏"><a href="#1-花屏" class="headerlink" title="1. 花屏"></a>1. 花屏</h3><p><img src="/2024/05/25/WSL-configure/error0.png"></p>
 <p>原因可能是由于缺乏显卡驱动导致的</p>
 <p>解决方案：<code>sudo apt install mesa-utils</code></p>
 <p>但是这个方案似乎不治本（也有可能根本没解决问题），安装完一段时间内这个问题确实解决了。但是在写本文时它又复发了，暂时无解。</p>
-<h3 id="2-GUI-应用程序的语言问题"><a href="#2-GUI-应用程序的语言问题" class="headerlink" title="2. GUI 应用程序的语言问题"></a>2. GUI 应用程序的语言问题</h3><p>WSL默认语言为全英文，在终端操作确实很好用，但是使用GUI程序时就有些不爽了。</p>
-<p>解决方案I: 更改全局locale: <code>sudo dpkg-reconfigure locales</code>，按照TUI界面操作就可以了（注意第一步按空格键选择）</p>
-<p>解决方案II: 设置<code>~/.profile</code>: 还是<code>sudo dpkg-reconfigure locales</code>，生成<code>zh_CN.UTF-8</code>的locale（默认是没有的），然后再<code>~/.profile</code>中插入<code>export LANG = zh_CN.UTF-8</code>（如果是更改<code>.bashrc</code>从Windows开始菜单运行的程序不会生效，猜测是由于从开始菜单运行时不经过bash）</p>
+<h3 id="2-GUI-应用程序的语言问题"><a href="#2-GUI-应用程序的语言问题" class="headerlink" title="2. GUI 应用程序的语言问题"></a>2. GUI 应用程序的语言问题</h3><p>WSL默认语言为全英文，在终端操作确实很好用，但是使用 GUI 程序时就有些不爽了。</p>
+<p>解决方案I: 更改全局 locale: <code>sudo dpkg-reconfigure locales</code>，按照 TUI 界面操作就可以了（注意第一步按空格键选择）</p>
+<p>解决方案II: 设置 <code>~/.profile</code>: 还是 <code>sudo dpkg-reconfigure locales</code>，生成 <code>zh_CN.UTF-8</code> 的 locale（默认是没有的），然后再 <code>~/.profile</code> 中插入 <code>export LANG = zh_CN.UTF-8</code>（如果是更改 <code>.bashrc</code> 从Windows开始菜单运行的程序不会生效，猜测是由于从开始菜单运行时不经过bash）</p>
 <h3 id="3-HiDPI-缩放问题"><a href="#3-HiDPI-缩放问题" class="headerlink" title="3. HiDPI 缩放问题"></a>3. HiDPI 缩放问题</h3><p>GTK 程序默认似乎是没有问题的，问题在于 Qt</p>
 <p>解决方案: 编辑<code>~/.profile</code>: </p>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">export</span> QT_QPA_PLATFORM=<span class="string">&quot;wayland&quot;</span></span><br><span class="line"><span class="built_in">export</span> QT_AUTO_SCREEN_SCALE_FACTOR=0</span><br><span class="line"><span class="built_in">export</span> QT_ENABLE_HIGHDPI_SCALING=0</span><br><span class="line"><span class="built_in">export</span> QT_SCALE_FACTOR=1.25</span><br></pre></td></tr></table></figure>
 
 <p>对于 Qt5 应用程序，就完美地解决了问题，但是 Qt6 程序似乎会缩放地过大，暂时无解</p>
-<h3 id="4-Qt-应用程序主题问题"><a href="#4-Qt-应用程序主题问题" class="headerlink" title="4. Qt 应用程序主题问题"></a>4. Qt 应用程序主题问题</h3><p>安装 <code>qt5ct qt6ct</code> 和需要的主题，编辑<code>.profile</code>: <code>export QT_QPA_PLATFORMTHEME=qt5ct</code></p>
+<h3 id="4-Qt-应用程序主题问题"><a href="#4-Qt-应用程序主题问题" class="headerlink" title="4. Qt 应用程序主题问题"></a>4. Qt 应用程序主题问题</h3><p>安装 <code>qt5ct qt6ct</code> 和需要的主题，编辑 <code>.profile</code>: <code>export QT_QPA_PLATFORMTHEME=qt5ct</code></p>
 <h3 id="存在的问题"><a href="#存在的问题" class="headerlink" title="存在的问题"></a>存在的问题</h3><ol>
 <li>花屏问题的复现</li>
 <li>Qt6 缩放过大</li>
-<li>Wayland下Qt应用程序窗口边框不能缩放，且没有阴影（导致分辨不清窗口边缘）</li>
+<li>Wayland 下 Qt 应用程序窗口边框不能缩放，且没有阴影（导致分辨不清窗口边缘）</li>
 </ol>
 
     </div>
