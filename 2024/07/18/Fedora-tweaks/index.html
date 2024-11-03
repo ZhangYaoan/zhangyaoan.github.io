@@ -31,7 +31,7 @@
 <meta property="og:image" content="https://zhangyaoan.github.io/2024/07/18/Fedora-tweaks/touhou-with-gamescope.png">
 <meta property="og:image" content="https://zhangyaoan.github.io/2024/07/18/Fedora-tweaks/bold-text.png">
 <meta property="article:published_time" content="2024-07-18T14:05:47.000Z">
-<meta property="article:modified_time" content="2024-08-02T13:46:51.837Z">
+<meta property="article:modified_time" content="2024-11-03T05:09:36.400Z">
 <meta property="article:author" content="unsigned char">
 <meta property="article:tag" content="Linux">
 <meta property="article:tag" content="Fedora">
@@ -212,7 +212,7 @@
         <i class="far fa-calendar-check"></i>
       </span>
       <span class="post-meta-item-text">更新于</span>
-      <time title="修改时间：2024-08-02 21:46:51" itemprop="dateModified" datetime="2024-08-02T21:46:51+08:00">2024-08-02</time>
+      <time title="修改时间：2024-11-03 13:09:36" itemprop="dateModified" datetime="2024-11-03T13:09:36+08:00">2024-11-03</time>
     </span>
 
   
@@ -231,16 +231,23 @@
 <span id="more"></span>
 
 <h2 id="分数缩放-fractional-scaling"><a href="#分数缩放-fractional-scaling" class="headerlink" title="分数缩放 (fractional scaling)"></a>分数缩放 (fractional scaling)</h2><p>Gnome 至今仍不正式支持分数缩放，仅有一个实验性功能提供了<strong>Wayland 应用程序</strong>的分数缩放（开启方法：<code>gsettings set org.gnome.mutter experimental-features &quot;[&#39;scale-monitor-framebuffer&#39;]&quot;</code>）</p>
-<p>但是在这种情况下 Xwayland app 会变得非常模糊（包括著名的 <code>vlc</code>），这显然不是我们需要的</p>
-<p>于是我们就需要安装 <code>taaem/mutter-xwayland-fractional-scaling</code> COPR 中 Patch 过的 <code>mutter</code>（Patch 来源于 <code>mutter</code> 的一个尚未 merge 的 PR），根据<a target="_blank" rel="noopener" href="https://copr.fedorainfracloud.org/coprs/taaem/mutter-xwayland-fractional-scaling/">COPR的描述</a>就可以了</p>
+<p><del>但是在这种情况下 Xwayland app 会变得非常模糊（包括著名的 <code>vlc</code>），这显然不是我们需要的</del></p>
+<p><del>于是我们就需要安装 <code>taaem/mutter-xwayland-fractional-scaling</code> COPR 中 Patch 过的 <code>mutter</code>（Patch 来源于 <code>mutter</code> 的一个尚未 merge 的 PR），根据<a target="_blank" rel="noopener" href="https://copr.fedorainfracloud.org/coprs/taaem/mutter-xwayland-fractional-scaling/">COPR的描述</a>就可以了</del></p>
+<blockquote>
+<p>2024&#x2F;11&#x2F;3 Updated: 该 MR 已经正式合并进 mutter 47，包含于最近发布的 Fedora 41，不再需要该 COPR，直接 <code>gsettings set org.gnome.mutter experimental-features &quot;[&#39;scale-monitor-framebuffer&#39;, &#39;xwayland-native-scaling&#39;]&quot;</code> 启用该功能即可</p>
+</blockquote>
 <h3 id="仍然存在的问题"><a href="#仍然存在的问题" class="headerlink" title="仍然存在的问题"></a>仍然存在的问题</h3><p>实际上，Gnome 至今都不支持<strong>真正的</strong>分数缩放，目前的分数缩放其实是先将显示器分辨率拉伸，以200%渲染后再缩小（P.S. GTK4 似乎正在支持真·分数缩放），这不仅会导致 GPU 资源的浪费，还会使<code>virt-manager</code> <code>gnome-box</code> 等需要像素对齐的应用程序出现问题（如 <code>virt-manager</code> 中的虚拟机分辨率过高等）</p>
 <p><code>xwayland-native-scaling</code> feature 也存在同样的问题（这似乎与 KDE 上同样功能的行为不同），这导致我在 <code>wine</code> 上运行的游戏以3072×1728的分辨率渲染（1920×1080，125%缩放），而且导致某些比较老旧游戏由于窗口过小而完全不能玩（例如东方几乎全系列）</p>
 <p><img src="/2024/07/18/Fedora-tweaks/touhou.png" alt="th08"></p>
 <blockquote>
-<p>Upd: 找到了一种解决方法：</p>
-<p>安装 <code>gamescope</code> ，使用 <code>gamescope -W 800 -H 600 -F fsr wine [东方游戏文件名]</code> 运行游戏即可</p>
-<p>上述方案会使用 AMD 的 FSR 拉伸游戏分辨率，如果想要保持原有的像素风格，可以使用 <code>-F nearest</code> 选项（话说东方是像素风游戏吗？）</p>
+<p><del>Upd: 找到了一种解决方法：</del></p>
+<p><del>安装 <code>gamescope</code> ，使用 <code>gamescope -W 800 -H 600 -F fsr wine [东方游戏文件名]</code> 运行游戏即可</del></p>
+<p><del>上述方案会使用 AMD 的 FSR 拉伸游戏分辨率，如果想要保持原有的像素风格，可以使用 <code>-F nearest</code> 选项（话说东方是像素风游戏吗？）</del></p>
 <p><img src="/2024/07/18/Fedora-tweaks/touhou-with-gamescope.png" alt="th08-with-gamescope"></p>
+<blockquote>
+<p>2024&#x2F;11&#x2F;3 Upd: 以上解决方案失效</p>
+<p><code>gamescope</code> 3.14.2 以上版本添加了 Wayland 支持，但是存在问题，直接导致游戏崩溃。对于 Fedora 40 可以使用 <code>dnf downgrade gamescope</code> 来降级至 <code>3.14.2</code> 版本，但是在 Fedora 41 上不可用。可以尝试自行编译安装旧版本（反正我这由于依赖问题编译失败了）</p>
+</blockquote>
 </blockquote>
 <h2 id="美化"><a href="#美化" class="headerlink" title="美化"></a>美化</h2><p>确切的说其实不是美化，只是让系统的 UI 更加统一</p>
 <h3 id="Qt-应用程序"><a href="#Qt-应用程序" class="headerlink" title="Qt 应用程序"></a>Qt 应用程序</h3><p>使用 <code>qt5ct</code> <code>qt6ct</code> 加上 <code>kvantum</code> 配合 <a target="_blank" rel="noopener" href="https://github.com/vinceliuice/Colloid-kde"><code>Colloid-kde</code></a> 主题（一个很像 Libadwaita 的 Kvantum Qt 主题，虽然很多 UI 元素的样式不同，但是整体风格很搭）</p>
@@ -255,10 +262,13 @@
 <p>编辑 <code>~\.config\environment.d\qt.conf</code> 并修改 <code>qt5ct</code> 和 <code>qt6ct</code> 中的字体设置后，重启就可以了</p>
 <figure class="highlight ini"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># QT_QPA_PLATFORMTHEME=&#x27;gnome&#x27; # 需要更改全局字体</span></span><br><span class="line"><span class="comment"># QT_STYLE_OVERRIDE=kvantum</span></span><br><span class="line"><span class="attr">QT_QPA_PLATFORMTHEME</span>=qt5ct</span><br><span class="line"><span class="attr">XCURSOR_THEME</span>=YOUR_CURSOR_THEME_NAME</span><br><span class="line"><span class="comment"># 更改 Qt6 应用程序的光标主题（如果有），默认情况下 Qt6 应用程序的光标是极丑的系统默认光标</span></span><br></pre></td></tr></table></figure>
 
-<h3 id="窗口圆角"><a href="#窗口圆角" class="headerlink" title="窗口圆角"></a>窗口圆角</h3><p>可以使用<a href="%60https://github.com/flexagoon/rounded-window-corners.git%60">这个</a>扩展</p>
+<h3 id="窗口圆角"><a href="#窗口圆角" class="headerlink" title="窗口圆角"></a>窗口圆角</h3><p>可以使用<a target="_blank" rel="noopener" href="https://github.com/flexagoon/rounded-window-corners.git">这个</a>扩展</p>
 <p>但是似乎有不少bug</p>
-<h2 id="杂项"><a href="#杂项" class="headerlink" title="杂项"></a>杂项</h2><p>VScode 貌似默认使用 XWayland，可以启用实验性功能来支持 Wayland，但是在我这输入法没法用（XWayland 下候选框会到处乱飘，但是能用）</p>
-<p>似乎有人已经解决了这个问题，但是在我这里没有成功</p>
+<h2 id="杂项"><a href="#杂项" class="headerlink" title="杂项"></a>杂项</h2><p><del>VScode 貌似默认使用 XWayland，可以启用实验性功能来支持 Wayland，但是在我这输入法没法用（XWayland 下候选框会到处乱飘，但是能用）</del></p>
+<p><del>似乎有人已经解决了这个问题，但是在我这里没有成功</del></p>
+<blockquote>
+<p>2024&#x2F;11&#x2F;3 Upd: 上文提到的 MR（已合并）已经解决这一问题</p>
+</blockquote>
 
     </div>
 
