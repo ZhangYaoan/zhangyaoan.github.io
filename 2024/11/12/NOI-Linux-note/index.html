@@ -1,0 +1,424 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width">
+<meta name="theme-color" content="#222" media="(prefers-color-scheme: light)">
+<meta name="theme-color" content="#222" media="(prefers-color-scheme: dark)"><meta name="generator" content="Hexo 7.3.0">
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png">
+  <link rel="mask-icon" href="/images/logo.svg" color="#222">
+
+<link rel="stylesheet" href="/css/main.css">
+
+<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Noto+Sans+SC:300,300italic,400,400italic,700,700italic%7CNoto+Serif+SC:300,300italic,400,400italic,700,700italic%7CSource+Code+Pro:300,300italic,400,400italic,700,700italic&display=swap&subset=latin,latin-ext">
+
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css" integrity="sha256-5eIC48iZUHmSlSUz9XtjRyK2mzQkHScZY1WdMaoz74E=" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.1.1/animate.min.css" integrity="sha256-PR7ttpcvz8qrF57fur/yAx1qXMFJeJFiA6pSzWi0OIE=" crossorigin="anonymous">
+
+<script class="next-config" data-name="main" type="application/json">{"hostname":"zhangyaoan.github.io","root":"/","images":"/images","scheme":"Muse","darkmode":true,"version":"8.21.0","exturl":false,"sidebar":{"position":"left","width_expanded":320,"width_dual_column":240,"display":"post","padding":18,"offset":12},"hljswrap":true,"copycode":{"enable":false,"style":null},"fold":{"enable":false,"height":500},"bookmark":{"enable":false,"color":"#222","save":"auto"},"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"stickytabs":false,"motion":{"enable":true,"async":false,"transition":{"menu_item":"fadeInDown","post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"i18n":{"placeholder":"搜索...","empty":"没有找到任何搜索结果：${query}","hits_time":"找到 ${hits} 个搜索结果（用时 ${time} 毫秒）","hits":"找到 ${hits} 个搜索结果"}}</script><script src="/js/config.js"></script>
+
+    <meta name="description" content="前情提要：由于我是机房中为数不多的几个用过 NOI Linux 的人，zhub 让我写了本文以向大家分享 NOI Linux 使用技巧。 疑似是有点太详细了，我写的大部分东西 zhub 都讲了   首先声明一下，我不是 Linux 专家，对一些东西了解不多，只是分享一些 实用主义 的技巧，请大佬轻喷  强烈建议场上把在 Windows 中写的程序在 NOI Linux 编译一遍，防止挂分">
+<meta property="og:type" content="article">
+<meta property="og:title" content="NOI Linux 使用技巧">
+<meta property="og:url" content="https://zhangyaoan.github.io/2024/11/12/NOI-Linux-note/index.html">
+<meta property="og:site_name" content="蒟蒻のBlog">
+<meta property="og:description" content="前情提要：由于我是机房中为数不多的几个用过 NOI Linux 的人，zhub 让我写了本文以向大家分享 NOI Linux 使用技巧。 疑似是有点太详细了，我写的大部分东西 zhub 都讲了   首先声明一下，我不是 Linux 专家，对一些东西了解不多，只是分享一些 实用主义 的技巧，请大佬轻喷  强烈建议场上把在 Windows 中写的程序在 NOI Linux 编译一遍，防止挂分">
+<meta property="og:locale" content="zh_CN">
+<meta property="article:published_time" content="2024-11-12T10:12:00.000Z">
+<meta property="article:modified_time" content="2024-11-22T14:59:00.062Z">
+<meta property="article:author" content="unsigned char">
+<meta property="article:tag" content="OI">
+<meta property="article:tag" content="Linux">
+<meta property="article:tag" content="技术">
+<meta name="twitter:card" content="summary">
+
+
+<link rel="canonical" href="https://zhangyaoan.github.io/2024/11/12/NOI-Linux-note/">
+
+
+
+<script class="next-config" data-name="page" type="application/json">{"sidebar":"","isHome":false,"isPost":true,"lang":"zh-CN","comments":true,"permalink":"https://zhangyaoan.github.io/2024/11/12/NOI-Linux-note/","path":"2024/11/12/NOI-Linux-note/","title":"NOI Linux 使用技巧"}</script>
+
+<script class="next-config" data-name="calendar" type="application/json">""</script>
+<title>NOI Linux 使用技巧 | 蒟蒻のBlog</title>
+  
+
+
+
+
+
+
+
+
+  <noscript>
+    <link rel="stylesheet" href="/css/noscript.css">
+  </noscript>
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" class="use-motion">
+  <div class="headband"></div>
+
+  <main class="main">
+    <div class="column">
+      <header class="header" itemscope itemtype="http://schema.org/WPHeader"><div class="site-brand-container">
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="切换导航栏" role="button">
+        <span class="toggle-line"></span>
+        <span class="toggle-line"></span>
+        <span class="toggle-line"></span>
+    </div>
+  </div>
+
+  <div class="site-meta">
+
+    <a href="/" class="brand" rel="start">
+      <i class="logo-line"></i>
+      <p class="site-title">蒟蒻のBlog</p>
+      <i class="logo-line"></i>
+    </a>
+  </div>
+
+  <div class="site-nav-right">
+    <div class="toggle popup-trigger" aria-label="搜索" role="button">
+    </div>
+  </div>
+</div>
+
+
+
+<nav class="site-nav">
+  <ul class="main-menu menu"><li class="menu-item menu-item-home"><a href="/" rel="section"><i class="fa fa-home fa-fw"></i>首页</a></li><li class="menu-item menu-item-about"><a href="/about/" rel="section"><i class="fa fa-user fa-fw"></i>关于</a></li><li class="menu-item menu-item-tags"><a href="/tags/" rel="section"><i class="fa fa-tags fa-fw"></i>标签</a></li><li class="menu-item menu-item-archives"><a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>归档</a></li>
+  </ul>
+</nav>
+
+
+
+
+</header>
+        
+  
+  <aside class="sidebar">
+
+    <div class="sidebar-inner sidebar-nav-active sidebar-toc-active">
+      <ul class="sidebar-nav">
+        <li class="sidebar-nav-toc">
+          文章目录
+        </li>
+        <li class="sidebar-nav-overview">
+          站点概览
+        </li>
+      </ul>
+
+      <div class="sidebar-panel-container">
+        <!--noindex-->
+        <div class="post-toc-wrap sidebar-panel">
+            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E4%BB%A5%E4%B8%8B%E4%BB%A3%E7%A0%81%E5%9C%A8-Linux-%E4%B8%AD%E4%B8%8D%E8%83%BD%E8%BF%87%E7%BC%96"><span class="nav-number">1.</span> <span class="nav-text">以下代码在 Linux 中不能过编</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#NOI-Linux-%E7%9A%84%E4%BD%BF%E7%94%A8%E6%8A%80%E5%B7%A7"><span class="nav-number">2.</span> <span class="nav-text">NOI Linux 的使用技巧</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#Linux-%E4%B8%8B%E7%9A%84%E6%B3%A8%E6%84%8F%E4%BA%8B%E9%A1%B9"><span class="nav-number">2.1.</span> <span class="nav-text">Linux 下的注意事项</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%A6%82%E4%BD%95%E7%BC%96%E5%86%99%E4%BB%A3%E7%A0%81"><span class="nav-number">2.2.</span> <span class="nav-text">如何编写代码</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%A6%82%E4%BD%95%E7%BC%96%E8%AF%91%E5%92%8C%E8%BF%90%E8%A1%8C%E4%BB%A3%E7%A0%81"><span class="nav-number">2.3.</span> <span class="nav-text">如何编译和运行代码</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%85%B6%E4%BB%96%E5%8F%AF%E8%83%BD%E7%94%A8%E4%B8%8A%E7%9A%84%E5%91%BD%E4%BB%A4"><span class="nav-number">2.4.</span> <span class="nav-text">其他可能用上的命令</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%85%B6%E4%BB%96%E5%8F%AF%E8%83%BD%E7%94%A8%E4%B8%8A%E7%9A%84%E4%B8%9C%E8%A5%BF"><span class="nav-number">3.</span> <span class="nav-text">其他可能用上的东西</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%AF%B9%E6%8B%8D%E8%84%9A%E6%9C%AC"><span class="nav-number">3.1.</span> <span class="nav-text">对拍脚本</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#GDB-%E7%9A%84%E5%9F%BA%E6%9C%AC%E4%BD%BF%E7%94%A8"><span class="nav-number">3.2.</span> <span class="nav-text">GDB 的基本使用</span></a></li></ol></li></ol></div>
+        </div>
+        <!--/noindex-->
+
+        <div class="site-overview-wrap sidebar-panel">
+          <div class="site-author animated" itemprop="author" itemscope itemtype="http://schema.org/Person">
+    <img class="site-author-image" itemprop="image" alt="unsigned char"
+      src="/images/user_avatar.webp">
+  <p class="site-author-name" itemprop="name">unsigned char</p>
+  <div class="site-description" itemprop="description">unsigned char's blog</div>
+</div>
+<div class="site-state-wrap animated">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+        <a href="/archives/">
+          <span class="site-state-item-count">11</span>
+          <span class="site-state-item-name">日志</span>
+        </a>
+      </div>
+      <div class="site-state-item site-state-tags">
+          <a href="/tags/">
+        <span class="site-state-item-count">15</span>
+        <span class="site-state-item-name">标签</span></a>
+      </div>
+  </nav>
+</div>
+  <div class="links-of-author animated">
+      <span class="links-of-author-item">
+        <a href="https://github.com/ZhangYaoan" title="GitHub → https:&#x2F;&#x2F;github.com&#x2F;ZhangYaoan" rel="noopener me" target="_blank"><i class="fab fa-github fa-fw"></i>GitHub</a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="https://www.luogu.com.cn/user/421773" title="Luogu → https:&#x2F;&#x2F;www.luogu.com.cn&#x2F;user&#x2F;421773" rel="noopener me" target="_blank">Luogu</a>
+      </span>
+  </div>
+
+        </div>
+      </div>
+    </div>
+
+    
+  </aside>
+
+
+    </div>
+
+    <div class="main-inner post posts-expand">
+
+
+  
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="https://zhangyaoan.github.io/2024/11/12/NOI-Linux-note/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/user_avatar.webp">
+      <meta itemprop="name" content="unsigned char">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="蒟蒻のBlog">
+      <meta itemprop="description" content="unsigned char's blog">
+    </span>
+
+    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
+      <meta itemprop="name" content="NOI Linux 使用技巧 | 蒟蒻のBlog">
+      <meta itemprop="description" content="">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          NOI Linux 使用技巧
+        </h1>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">发表于</span>
+
+      <time title="创建时间：2024-11-12 18:12:00" itemprop="dateCreated datePublished" datetime="2024-11-12T18:12:00+08:00">2024-11-12</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar-check"></i>
+      </span>
+      <span class="post-meta-item-text">更新于</span>
+      <time title="修改时间：2024-11-22 22:59:00" itemprop="dateModified" datetime="2024-11-22T22:59:00+08:00">2024-11-22</time>
+    </span>
+
+  
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody"><blockquote>
+<p>前情提要：由于我是机房中为数不多的几个用过 NOI Linux 的人，zhub 让我写了本文以向大家分享 NOI Linux 使用技巧。</p>
+<p><del>疑似是有点太详细了，我写的大部分东西 zhub 都讲了</del></p>
+</blockquote>
+<blockquote>
+<p>首先声明一下，我不是 Linux 专家，对一些东西了解不多，只是分享一些 <strong>实用主义</strong> 的技巧，请大佬轻喷</p>
+</blockquote>
+<p><strong>强烈建议场上把在 Windows 中写的程序在 NOI Linux 编译一遍，防止挂分</strong></p>
+<span id="more"></span>
+
+<h2 id="以下代码在-Linux-中不能过编"><a href="#以下代码在-Linux-中不能过编" class="headerlink" title="以下代码在 Linux 中不能过编"></a>以下代码在 Linux 中不能过编</h2><ul>
+<li><code>#include&lt;bits\stdc++.h&gt;</code> : 应写成 <code>#include&lt;bits/stdc++.h&gt;</code></li>
+<li><code>#include&lt;windows.h&gt;</code> : Windows 下特有的头文件，请使用 <code>#include&lt;cstdlib&gt;</code> 调用 <code>system()</code></li>
+<li>这玩意在 Dev-C++ 中甚至<strong>能</strong>过编，我去年 CSP 被坑过  <figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">inline</span> <span class="title">fun</span><span class="params">(<span class="type">int</span> arg, ...)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="comment">// do something...</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></li>
+<li><code>system(&quot;pause&quot;)</code> <del>不会 4202 年还有人在用这个吧</del></li>
+<li>还有一堆特定于 Windows 和 GCC 4.9.x 的非标准库</li>
+</ul>
+<h2 id="NOI-Linux-的使用技巧"><a href="#NOI-Linux-的使用技巧" class="headerlink" title="NOI Linux 的使用技巧"></a>NOI Linux 的使用技巧</h2><h3 id="Linux-下的注意事项"><a href="#Linux-下的注意事项" class="headerlink" title="Linux 下的注意事项"></a>Linux 下的注意事项</h3><ul>
+<li>路径使用 <code>/</code> (斜杠) 而不是 <code>\</code> (反斜杠)</li>
+<li>以 <code>.</code> (点) 开头的文件会隐藏</li>
+<li>大小写敏感 e.g. <code>abc.tXt</code> 与 <code>abc.txt</code> 是不同的文件</li>
+<li>终端中不能使用 <code>Ctrl</code> + <code>C</code> 和 <code>Ctrl</code> + <code>V</code> 来复制粘贴，请使用 <code>Ctrl</code> + <code>Shift</code> + <code>C</code> 和 <code>Ctrl</code> + <code>Shift</code> + <code>V</code> （注意 <code>Ctrl</code> + <code>C</code> 是退出程序）</li>
+<li>可执行文件没有 <code>.exe</code> 后缀名</li>
+<li>运行程序需 <code>./【程序名】</code></li>
+<li>Python 命令是 <code>python3</code></li>
+</ul>
+<h3 id="如何编写代码"><a href="#如何编写代码" class="headerlink" title="如何编写代码"></a>如何编写代码</h3><blockquote>
+<p>如果使用 Code::Blocks，小齿轮按钮是编译，<strong>绿色</strong>小箭头是运行</p>
+</blockquote>
+<ul>
+<li>IDE: Code::Blocks，强烈推荐，自带强大代码补全和调试（能调 STL）功能，比 Dev-C++ 好用 114514 倍<ul>
+<li>注意事项：<ul>
+<li>建议建 Project (File -&gt; New -&gt; Project -&gt; Console application) 以使用完整功能</li>
+<li>默认终端是 XTerm，比较反人类（反正我至今没搞懂怎么复制粘贴），在 Settings -&gt; Environment 中将 Terminal to launch… 一项改为 gnome-terminal…</li>
+<li>建议在 Debugger -&gt; GDB&#x2F;CDB Debugger: Default 中取消勾选 Disable startup scripts（默认勾选），以调试 STL</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>Editor:<ul>
+<li>Geany: 编程体验类似 Dev-C++，有语法高亮和简单代码补全</li>
+<li>gedit(中文名：文本编辑器)：有语法高亮，无代码补全</li>
+<li>VSCode: <strong>没有插件</strong>，使用体验一般，功能同上</li>
+<li>Sublime Text 3: 有简单代码补全（感觉不怎么好用）</li>
+<li>Vim: 强大的命令行文本编辑器（不推荐新手使用）</li>
+<li>Emacs: 同上，有 GUI，我不会用</li>
+<li>nano: (终端命令 <code>nano</code>) 易于上手的命令行文本编辑器</li>
+<li>JOE(Joe’s Own Editor): 命令行文本编辑器，不知道怎么用</li>
+</ul>
+</li>
+</ul>
+<h3 id="如何编译和运行代码"><a href="#如何编译和运行代码" class="headerlink" title="如何编译和运行代码"></a>如何编译和运行代码</h3><ul>
+<li>在代码目录下右键「在终端打开」</li>
+<li><code>g++ ./【程序文件名】.cpp -o 【程序文件名】 -std=c++14 -O2 -g</code> 编译代码</li>
+<li><code>./【程序文件名】</code> 运行</li>
+<li><code>time -p ./【程序文件名】</code> 可以查看程序运行时间（注意本机运行速度往往慢于 €€£ 少爷机，特别是在有虚拟机性能损耗的情况）</li>
+</ul>
+<h3 id="其他可能用上的命令"><a href="#其他可能用上的命令" class="headerlink" title="其他可能用上的命令"></a>其他可能用上的命令</h3><ul>
+<li>Linux 的特定目录：<ul>
+<li><code>.</code> 当前目录</li>
+<li><code>..</code> 当前目录的父目录</li>
+<li><code>~</code> 主目录（a.k.a. 主文件夹），你创建的所有文件都应该放在这个目录及其子目录下</li>
+<li><code>/</code> 根目录，除非你知道你在干什么，否则不要动这个目录下的文件</li>
+</ul>
+</li>
+<li><code>touch 【文件名】</code> 新建文件</li>
+<li><code>mkdir 【目录名】</code> 新建目录</li>
+<li><code>cd 【目录】</code> 切换当前目录</li>
+<li><code>ls 【目录名】</code> 列出目录下文件，如果不给定目录名，则默认是当前目录，<code>ls -A</code> 列出所有文件，包含隐藏文件（注意：主目录下会有很多无关的隐藏文件）</li>
+<li><code>rm 【文件名】</code> 删除文件，<code>rm -r 【目录名】</code> 删除目录</li>
+<li><code>cp 【原路径/文件】 【目录路径/文件】</code> 复制文件</li>
+<li><code>mv 【原路径/文件名】 【新路径/文件名】</code> 移动&#x2F;改名文件</li>
+<li><code>diff 【文件A】 【文件B】</code> 比较文件 A 和文件 B 的差异</li>
+<li><code>ps -e</code> 列出所有进程（和 PID）</li>
+<li><code>kill 【PID】</code> 结束进程（PID 使用上面的命令查看）</li>
+<li><code>killall 【进程名】</code> 结束进程</li>
+<li>管道：<code>【程序A】 | 【程序B】</code> 将程序 A 的输出作为程序 B 的输入运行 A 和 B</li>
+<li>文件输入输出重定向：<ul>
+<li><code>【程序】 &gt; 【输出文件名】</code> 将输出写至文件</li>
+<li><code>【程序】 &lt; 【输入文件】</code> 将文件作为输入运行程序</li>
+<li>可以一块使用，如：<code>./prob &lt; prob.in &gt; prob.out</code></li>
+</ul>
+</li>
+</ul>
+<h2 id="其他可能用上的东西"><a href="#其他可能用上的东西" class="headerlink" title="其他可能用上的东西"></a>其他可能用上的东西</h2><h3 id="对拍脚本"><a href="#对拍脚本" class="headerlink" title="对拍脚本"></a>对拍脚本</h3><p>对拍代码模板（<code>prob</code> 是代码文件名和输入输出文件名，<code>gen.cpp</code> 是数据生成器，<code>bf.cpp</code> 是暴力程序）</p>
+<p>使用方法：<code>bash ./chk.sh</code></p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># chk.sh</span></span><br><span class="line"><span class="built_in">read</span> n</span><br><span class="line">g++ ./prob.cpp -o prob -O2</span><br><span class="line">g++ ./bf.cpp -o bf -O2</span><br><span class="line">g++ ./gen.cpp -o gen -O2</span><br><span class="line"><span class="keyword">while</span> (( <span class="variable">$n</span>&gt;<span class="number">0</span> ))</span><br><span class="line"><span class="keyword">do</span></span><br><span class="line">    ./gen &gt; prob.in</span><br><span class="line">    <span class="comment"># 文件输入输出 ./gen</span></span><br><span class="line">    <span class="keyword">if</span> (( $?&gt;<span class="number">0</span> )) <span class="keyword">then</span></span><br><span class="line">        <span class="built_in">echo</span> <span class="string">&quot;Data Generate Fail&quot;</span></span><br><span class="line">        <span class="built_in">sleep</span> 1s</span><br><span class="line">        <span class="built_in">continue</span></span><br><span class="line">    <span class="keyword">fi</span></span><br><span class="line">    ./prob &lt; prob.in &gt; prob.out</span><br><span class="line">    <span class="comment"># 以上是无文件输入输出的方法</span></span><br><span class="line">    <span class="comment"># 如果有文件输入输出则改成 ./prob</span></span><br><span class="line">    <span class="keyword">if</span> (( $?&gt;<span class="number">0</span> )) <span class="keyword">then</span></span><br><span class="line">        <span class="built_in">echo</span> <span class="string">&quot;Runtime Error&quot;</span></span><br><span class="line">        <span class="built_in">break</span></span><br><span class="line">    <span class="keyword">fi</span></span><br><span class="line">    ./bf &lt; prob.in &gt; bf.out</span><br><span class="line">    <span class="comment"># 文件输入输出 ./bf</span></span><br><span class="line">    <span class="keyword">if</span> (( $?&gt;<span class="number">0</span> )) <span class="keyword">then</span></span><br><span class="line">        <span class="built_in">echo</span> <span class="string">&quot;BF Runtime Error&quot;</span></span><br><span class="line">        <span class="built_in">continue</span></span><br><span class="line">    <span class="keyword">fi</span></span><br><span class="line">    <span class="keyword">if</span> diff prob.out bf.out; <span class="keyword">then</span></span><br><span class="line">        <span class="built_in">echo</span> <span class="string">&quot;OK&quot;</span></span><br><span class="line">        <span class="built_in">rm</span> prob.in prob.out bf.out</span><br><span class="line">    <span class="keyword">else</span></span><br><span class="line">        <span class="built_in">echo</span> <span class="string">&quot;WA&quot;</span></span><br><span class="line">        <span class="built_in">break</span></span><br><span class="line">    <span class="keyword">fi</span></span><br><span class="line"><span class="keyword">done</span></span><br><span class="line"><span class="built_in">rm</span> prob bf gen</span><br></pre></td></tr></table></figure>
+
+<p>简单版：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># chk.sh</span></span><br><span class="line">g++ prob.cpp -o prob -O2</span><br><span class="line">g++ bf.cpp -o bf -O2</span><br><span class="line">g++ gen.cpp -o gen -O2</span><br><span class="line">n=1</span><br><span class="line"><span class="keyword">while</span> ((n &lt;= <span class="number">1000</span>))</span><br><span class="line"><span class="keyword">do</span></span><br><span class="line">    ./gen &gt; prob.in</span><br><span class="line">    ./prob &lt; prob.in &gt; prob.out</span><br><span class="line">    ./bf &lt; prob.in &gt; bf.out</span><br><span class="line">    <span class="comment"># 全部无文件输入输出，有文件输入输出则应删除所有输入输出重定向</span></span><br><span class="line">    <span class="keyword">if</span> diff prob.out bf.out;</span><br><span class="line">    <span class="keyword">then</span></span><br><span class="line">        <span class="built_in">echo</span> <span class="variable">$n</span></span><br><span class="line">        <span class="built_in">let</span> <span class="string">&quot;n=n+1&quot;</span></span><br><span class="line">        <span class="built_in">continue</span></span><br><span class="line">    <span class="keyword">else</span></span><br><span class="line">        <span class="built_in">echo</span> <span class="string">&quot;WA&quot;</span></span><br><span class="line">        <span class="built_in">break</span></span><br><span class="line">    <span class="keyword">fi</span></span><br><span class="line"><span class="keyword">done</span></span><br></pre></td></tr></table></figure>
+
+<h3 id="GDB-的基本使用"><a href="#GDB-的基本使用" class="headerlink" title="GDB 的基本使用"></a>GDB 的基本使用</h3><blockquote>
+<p>这块我也不熟，我知道的就这些了</p>
+</blockquote>
+<blockquote>
+<p>P.S. 使用 Code::Blocks 可以愉快地调试</p>
+</blockquote>
+<p>GDB 是大部分 Linux 发行版中自带的 Debugger</p>
+<ul>
+<li><code>gdb 【程序名】</code> 进入 Debug 界面，注意编译时必须带上 <code>-g</code> 参数</li>
+<li><code>l 【行数】</code> 列出给定行附近代码，如果不给定行数则</li>
+<li><code>b 【行数或函数名】</code> 设置断点</li>
+<li><code>r</code> 运行至断点，注意不要忘记输入</li>
+<li><code>n</code> 下一行</li>
+<li><code>p 【变量名】</code> 打印变量</li>
+<li><code>disp 【变量名】</code> 设置变量在断点处始终显示</li>
+</ul>
+
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+          <div class="post-tags">
+              <a href="/tags/OI/" rel="tag"># OI</a>
+              <a href="/tags/Linux/" rel="tag"># Linux</a>
+              <a href="/tags/%E6%8A%80%E6%9C%AF/" rel="tag"># 技术</a>
+          </div>
+
+        
+
+          <div class="post-nav">
+            <div class="post-nav-item">
+                <a href="/2024/10/27/CSP-S-2024-summary/" rel="prev" title="CSP-S 2024 游记">
+                  <i class="fa fa-angle-left"></i> CSP-S 2024 游记
+                </a>
+            </div>
+            <div class="post-nav-item">
+            </div>
+          </div>
+    </footer>
+  </article>
+</div>
+
+
+
+
+
+
+</div>
+  </main>
+
+  <footer class="footer">
+    <div class="footer-inner">
+
+  <div class="copyright">
+    &copy; 
+    <span itemprop="copyrightYear">2024</span>
+    <span class="with-love">
+      <i class="fa fa-heart"></i>
+    </span>
+    <span class="author" itemprop="copyrightHolder">unsigned char</span>
+  </div>
+  <div class="powered-by">由 <a href="https://hexo.io/" rel="noopener" target="_blank">Hexo</a> & <a href="https://theme-next.js.org/muse/" rel="noopener" target="_blank">NexT.Muse</a> 强力驱动
+  </div>
+
+    </div>
+  </footer>
+
+  
+  <div class="toggle sidebar-toggle" role="button">
+    <span class="toggle-line"></span>
+    <span class="toggle-line"></span>
+    <span class="toggle-line"></span>
+  </div>
+  <div class="sidebar-dimmer"></div>
+  <div class="back-to-top" role="button" aria-label="返回顶部">
+    <i class="fa fa-arrow-up fa-lg"></i>
+    <span>0%</span>
+  </div>
+
+<noscript>
+  <div class="noscript-warning">Theme NexT works best with JavaScript enabled</div>
+</noscript>
+
+
+  
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/animejs/3.2.1/anime.min.js" integrity="sha256-XL2inqUJaslATFnHdJOi9GfQ60on8Wx1C2H8DYiN1xY=" crossorigin="anonymous"></script>
+<script src="/js/comments.js"></script><script src="/js/utils.js"></script><script src="/js/motion.js"></script><script src="/js/sidebar.js"></script><script src="/js/next-boot.js"></script>
+
+  
+
+
+
+
+
+
+  
+
+
+
+
+  
+
+  <script class="next-config" data-name="enableMath" type="application/json">true</script><script class="next-config" data-name="mathjax" type="application/json">{"enable":true,"tags":"none","js":{"url":"https://cdnjs.cloudflare.com/ajax/libs/mathjax/3.2.2/es5/tex-mml-chtml.js","integrity":"sha256-MASABpB4tYktI2Oitl4t+78w/lyA+D7b/s9GEP0JOGI="}}</script>
+<script src="/js/third-party/math/mathjax.js"></script>
+
+
+
+</body>
+</html>
