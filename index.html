@@ -124,7 +124,7 @@
   <nav class="site-state">
       <div class="site-state-item site-state-posts">
         <a href="/archives/">
-          <span class="site-state-item-count">11</span>
+          <span class="site-state-item-count">12</span>
           <span class="site-state-item-name">日志</span>
         </a>
       </div>
@@ -391,6 +391,100 @@
           <!--noindex-->
             <div class="post-button">
               <a class="btn" href="/2024/10/27/CCPC-2024-JN/#more" rel="contents">
+                阅读全文 &raquo;
+              </a>
+            </div>
+          <!--/noindex-->
+        
+      
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+</div>
+
+
+
+
+    
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
+    <link itemprop="mainEntityOfPage" href="https://zhangyaoan.github.io/2024/09/05/insert-dp/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/user_avatar.webp">
+      <meta itemprop="name" content="unsigned char">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="蒟蒻のBlog">
+      <meta itemprop="description" content="unsigned char's blog">
+    </span>
+
+    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
+      <meta itemprop="name" content="undefined | 蒟蒻のBlog">
+      <meta itemprop="description" content="">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          <a href="/2024/09/05/insert-dp/" class="post-title-link" itemprop="url">插入类 DP 学习笔记</a>
+        </h2>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">发表于</span>
+
+      <time title="创建时间：2024-09-05 21:05:00" itemprop="dateCreated datePublished" datetime="2024-09-05T21:05:00+08:00">2024-09-05</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar-check"></i>
+      </span>
+      <span class="post-meta-item-text">更新于</span>
+      <time title="修改时间：2024-11-23 10:48:42" itemprop="dateModified" datetime="2024-11-23T10:48:42+08:00">2024-11-23</time>
+    </span>
+
+  
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+          <h3 id="特征"><a href="#特征" class="headerlink" title="特征"></a>特征</h3><ul>
+<li>构造某个<strong>排列</strong>或求排列方案数</li>
+<li>答案与函数图像的转折点有关</li>
+<li>答案可以由块的合并得出，且上述对答案的影响可以在合并时计算</li>
+</ul>
+<h3 id="核心思想"><a href="#核心思想" class="headerlink" title="核心思想"></a>核心思想</h3><p>维护互不相关的块，在以一某种顺序加入新元素时进行对块的新增、合并、扩张，最终将所有块合并为一个，得到答案</p>
+<p>用 $dp_{i, j}$ 表示已经加入 $i$ 个元素，划分为 $j$ 个块的情况</p>
+<ul>
+<li>新增: $dp_{i, j} \gets dp_{i - 1, j - 1}$</li>
+<li>合并: $dp_{i, j} \gets dp_{i - 1, j + 1}$</li>
+<li>扩张: $dp_{i, j} \gets dp_{i - 1, j}$</li>
+</ul>
+          <!--noindex-->
+            <div class="post-button">
+              <a class="btn" href="/2024/09/05/insert-dp/#more" rel="contents">
                 阅读全文 &raquo;
               </a>
             </div>
@@ -911,93 +1005,6 @@
           <!--noindex-->
             <div class="post-button">
               <a class="btn" href="/2024/04/20/Geometry-Note-2/#more" rel="contents">
-                阅读全文 &raquo;
-              </a>
-            </div>
-          <!--/noindex-->
-        
-      
-    </div>
-
-    
-    
-    
-
-    <footer class="post-footer">
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-</div>
-
-
-
-
-    
-
-
-<div class="post-block">
-  
-  
-
-  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
-    <link itemprop="mainEntityOfPage" href="https://zhangyaoan.github.io/2024/04/14/Blog-build/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/user_avatar.webp">
-      <meta itemprop="name" content="unsigned char">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="蒟蒻のBlog">
-      <meta itemprop="description" content="unsigned char's blog">
-    </span>
-
-    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
-      <meta itemprop="name" content="undefined | 蒟蒻のBlog">
-      <meta itemprop="description" content="">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          <a href="/2024/04/14/Blog-build/" class="post-title-link" itemprop="url">Hexo 博客折腾记</a>
-        </h2>
-
-        <div class="post-meta-container">
-          <div class="post-meta">
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-calendar"></i>
-      </span>
-      <span class="post-meta-item-text">发表于</span>
-
-      <time title="创建时间：2024-04-14 10:56:46" itemprop="dateCreated datePublished" datetime="2024-04-14T10:56:46+08:00">2024-04-14</time>
-    </span>
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-calendar-check"></i>
-      </span>
-      <span class="post-meta-item-text">更新于</span>
-      <time title="修改时间：2024-11-03 13:41:04" itemprop="dateModified" datetime="2024-11-03T13:41:04+08:00">2024-11-03</time>
-    </span>
-
-  
-</div>
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-          <blockquote>
-<p>这个博客的搭建过程</p>
-<p>基于 GithubPages + Hexo + NexT theme</p>
-<p>包括博客的搭建过程和 NexT 主题的配置与美化，特别的，包含支持<strong>暗色模式</strong>的可爱<strong>背景图片</strong>设置</p>
-</blockquote>
-          <!--noindex-->
-            <div class="post-button">
-              <a class="btn" href="/2024/04/14/Blog-build/#more" rel="contents">
                 阅读全文 &raquo;
               </a>
             </div>

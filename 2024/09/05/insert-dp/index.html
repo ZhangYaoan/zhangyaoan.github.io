@@ -20,30 +20,29 @@
 
 <script class="next-config" data-name="main" type="application/json">{"hostname":"zhangyaoan.github.io","root":"/","images":"/images","scheme":"Muse","darkmode":true,"version":"8.21.0","exturl":false,"sidebar":{"position":"left","width_expanded":320,"width_dual_column":240,"display":"post","padding":18,"offset":12},"hljswrap":true,"copycode":{"enable":false,"style":null},"fold":{"enable":false,"height":500},"bookmark":{"enable":false,"color":"#222","save":"auto"},"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"stickytabs":false,"motion":{"enable":true,"async":false,"transition":{"menu_item":"fadeInDown","post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"i18n":{"placeholder":"搜索...","empty":"没有找到任何搜索结果：${query}","hits_time":"找到 ${hits} 个搜索结果（用时 ${time} 毫秒）","hits":"找到 ${hits} 个搜索结果"}}</script><script src="/js/config.js"></script>
 
-    <meta name="description" content="CSP-S 2024 游记 期望得分 $100 + 100 + 50 + 0 &#x3D; 250pts$ 等待 CCF 下发代码中… 今年 CCF 似乎没公开码，但是好消息是没挂分">
+    <meta name="description" content="特征 构造某个排列或求排列方案数 答案与函数图像的转折点有关 答案可以由块的合并得出，且上述对答案的影响可以在合并时计算  核心思想维护互不相关的块，在以一某种顺序加入新元素时进行对块的新增、合并、扩张，最终将所有块合并为一个，得到答案 用 $dp_{i, j}$ 表示已经加入 $i$ 个元素，划分为 $j$ 个块的情况  新增: $dp_{i, j} \gets dp_{i - 1, j - 1">
 <meta property="og:type" content="article">
-<meta property="og:title" content="CSP-S 2024 游记">
-<meta property="og:url" content="https://zhangyaoan.github.io/2024/10/27/CSP-S-2024-summary/index.html">
+<meta property="og:title" content="插入类 DP 学习笔记">
+<meta property="og:url" content="https://zhangyaoan.github.io/2024/09/05/insert-dp/index.html">
 <meta property="og:site_name" content="蒟蒻のBlog">
-<meta property="og:description" content="CSP-S 2024 游记 期望得分 $100 + 100 + 50 + 0 &#x3D; 250pts$ 等待 CCF 下发代码中… 今年 CCF 似乎没公开码，但是好消息是没挂分">
+<meta property="og:description" content="特征 构造某个排列或求排列方案数 答案与函数图像的转折点有关 答案可以由块的合并得出，且上述对答案的影响可以在合并时计算  核心思想维护互不相关的块，在以一某种顺序加入新元素时进行对块的新增、合并、扩张，最终将所有块合并为一个，得到答案 用 $dp_{i, j}$ 表示已经加入 $i$ 个元素，划分为 $j$ 个块的情况  新增: $dp_{i, j} \gets dp_{i - 1, j - 1">
 <meta property="og:locale" content="zh_CN">
-<meta property="article:published_time" content="2024-10-27T14:27:50.000Z">
-<meta property="article:modified_time" content="2024-11-08T16:33:46.460Z">
+<meta property="article:published_time" content="2024-09-05T13:05:00.000Z">
+<meta property="article:modified_time" content="2024-11-23T02:48:42.267Z">
 <meta property="article:author" content="unsigned char">
 <meta property="article:tag" content="OI">
-<meta property="article:tag" content="游记">
-<meta property="article:tag" content="CSP&#x2F;NOIP">
+<meta property="article:tag" content="笔记">
 <meta name="twitter:card" content="summary">
 
 
-<link rel="canonical" href="https://zhangyaoan.github.io/2024/10/27/CSP-S-2024-summary/">
+<link rel="canonical" href="https://zhangyaoan.github.io/2024/09/05/insert-dp/">
 
 
 
-<script class="next-config" data-name="page" type="application/json">{"sidebar":"","isHome":false,"isPost":true,"lang":"zh-CN","comments":true,"permalink":"https://zhangyaoan.github.io/2024/10/27/CSP-S-2024-summary/","path":"2024/10/27/CSP-S-2024-summary/","title":"CSP-S 2024 游记"}</script>
+<script class="next-config" data-name="page" type="application/json">{"sidebar":"","isHome":false,"isPost":true,"lang":"zh-CN","comments":true,"permalink":"https://zhangyaoan.github.io/2024/09/05/insert-dp/","path":"2024/09/05/insert-dp/","title":"插入类 DP 学习笔记"}</script>
 
 <script class="next-config" data-name="calendar" type="application/json">""</script>
-<title>CSP-S 2024 游记 | 蒟蒻のBlog</title>
+<title>插入类 DP 学习笔记 | 蒟蒻のBlog</title>
   
 
 
@@ -115,7 +114,7 @@
       <div class="sidebar-panel-container">
         <!--noindex-->
         <div class="post-toc-wrap sidebar-panel">
-            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#T1"><span class="nav-number">1.</span> <span class="nav-text">T1</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#T2"><span class="nav-number">2.</span> <span class="nav-text">T2</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#T3"><span class="nav-number">3.</span> <span class="nav-text">T3</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#T4"><span class="nav-number">4.</span> <span class="nav-text">T4</span></a></li></ol></div>
+            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E7%89%B9%E5%BE%81"><span class="nav-number">1.</span> <span class="nav-text">特征</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%A0%B8%E5%BF%83%E6%80%9D%E6%83%B3"><span class="nav-number">2.</span> <span class="nav-text">核心思想</span></a></li></ol></div>
         </div>
         <!--/noindex-->
 
@@ -171,7 +170,7 @@
   
 
   <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="https://zhangyaoan.github.io/2024/10/27/CSP-S-2024-summary/">
+    <link itemprop="mainEntityOfPage" href="https://zhangyaoan.github.io/2024/09/05/insert-dp/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="image" content="/images/user_avatar.webp">
@@ -184,12 +183,12 @@
     </span>
 
     <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
-      <meta itemprop="name" content="CSP-S 2024 游记 | 蒟蒻のBlog">
+      <meta itemprop="name" content="插入类 DP 学习笔记 | 蒟蒻のBlog">
       <meta itemprop="description" content="">
     </span>
       <header class="post-header">
         <h1 class="post-title" itemprop="name headline">
-          CSP-S 2024 游记
+          插入类 DP 学习笔记
         </h1>
 
         <div class="post-meta-container">
@@ -200,14 +199,14 @@
       </span>
       <span class="post-meta-item-text">发表于</span>
 
-      <time title="创建时间：2024-10-27 22:27:50" itemprop="dateCreated datePublished" datetime="2024-10-27T22:27:50+08:00">2024-10-27</time>
+      <time title="创建时间：2024-09-05 21:05:00" itemprop="dateCreated datePublished" datetime="2024-09-05T21:05:00+08:00">2024-09-05</time>
     </span>
     <span class="post-meta-item">
       <span class="post-meta-item-icon">
         <i class="far fa-calendar-check"></i>
       </span>
       <span class="post-meta-item-text">更新于</span>
-      <time title="修改时间：2024-11-09 00:33:46" itemprop="dateModified" datetime="2024-11-09T00:33:46+08:00">2024-11-09</time>
+      <time title="修改时间：2024-11-23 10:48:42" itemprop="dateModified" datetime="2024-11-23T10:48:42+08:00">2024-11-23</time>
     </span>
 
   
@@ -219,42 +218,21 @@
     
     
     
-    <div class="post-body" itemprop="articleBody"><blockquote>
-<p>CSP-S 2024 游记</p>
-<p>期望得分 $100 + 100 + 50 + 0 &#x3D; 250pts$</p>
-<p><del>等待 CCF 下发代码中…</del> 今年 CCF 似乎没公开码，但是好消息是没挂分</p>
-</blockquote>
+    <div class="post-body" itemprop="articleBody"><h3 id="特征"><a href="#特征" class="headerlink" title="特征"></a>特征</h3><ul>
+<li>构造某个<strong>排列</strong>或求排列方案数</li>
+<li>答案与函数图像的转折点有关</li>
+<li>答案可以由块的合并得出，且上述对答案的影响可以在合并时计算</li>
+</ul>
+<h3 id="核心思想"><a href="#核心思想" class="headerlink" title="核心思想"></a>核心思想</h3><p>维护互不相关的块，在以一某种顺序加入新元素时进行对块的新增、合并、扩张，最终将所有块合并为一个，得到答案</p>
+<p>用 $dp_{i, j}$ 表示已经加入 $i$ 个元素，划分为 $j$ 个块的情况</p>
+<ul>
+<li>新增: $dp_{i, j} \gets dp_{i - 1, j - 1}$</li>
+<li>合并: $dp_{i, j} \gets dp_{i - 1, j + 1}$</li>
+<li>扩张: $dp_{i, j} \gets dp_{i - 1, j}$</li>
+</ul>
 <span id="more"></span>
 
-<h2 id="T1"><a href="#T1" class="headerlink" title="T1"></a>T1</h2><p>30min 写了个贪心，直接跑过样例。曾经一度以为样例是经过特殊构造的，欲写对拍，由于暴力不好写，遂放弃。</p>
-<p>期望得分：$100pts$</p>
-<h2 id="T2"><a href="#T2" class="headerlink" title="T2"></a>T2</h2><p>先通过物理公式计算出每个车的超速区间，需分 $a &gt; 0$，$a &lt; 0$ 和 $a &#x3D; 0$ 三种情况讨论</p>
-<p>再对 $p_i$ 离散化，并将上述区间映射到离散化的 $p$ 上，同时可以求出第一问的答案</p>
-<p>然后第二问就转化为最少点覆盖区间问题，经典贪心，优先队列即可</p>
-<p>$O(m \log m)$，过样例，期望得分 $100pts$</p>
-<blockquote>
-<p>似乎有不少人挂分，包括 k_Sword 和 NAPeach，为他们感到惋惜，希望他们能在 NOIP 中取得好成绩</p>
-</blockquote>
-<h2 id="T3"><a href="#T3" class="headerlink" title="T3"></a>T3</h2><p>30min 写了个 $50pts$ 显然 $O(n^2)$ DP</p>
-<p>$f_{i, 0&#x2F;1, pre}$ 表示第 $i$ 位，染色为蓝或红，上一个与当前异色元素的下标为 $pre$ 的最大权值</p>
-<p>对于 $f_{i, 0&#x2F;1, i - 1}$ 枚举上一位的 $pre$ 转移即可</p>
-<p>写完只剩 30min 结束，蓝的优化，遂摆烂</p>
-<blockquote>
-<p>是 Copy CodeForces，CCF 烂完</p>
-<p>后来听说正解是 $O(n)$ 的 DP，似乎式子还比较好推？</p>
-<p>还可以 $O(n \log n)$ 的 DS 优化 DP，但是 jl 写的被卡常了</p>
-</blockquote>
-<h2 id="T4"><a href="#T4" class="headerlink" title="T4"></a>T4</h2><p>没写。</p>
-<blockquote>
-<p>是黑题。正解线性做法似乎很难想。听说有 $16pts$ 唐分，且 $72pts$ 很可做，可惜场上没开。</p>
-<p>zzethld 说他场上想到了 $92pts$ 做法，%%%</p>
-</blockquote>
-<hr>
-<blockquote>
-<p>k_Sword: CSP-S 有 $372pts$ 的人机分</p>
-</blockquote>
-<p>SD 这次分数线 $195pts$，再创新高，题目质量可见一斑</p>
-<p>QDEZ 似乎人均 $300pts+$，我太菜了 QwQ</p>
+<p>TODO</p>
 
     </div>
 
@@ -265,21 +243,20 @@
     <footer class="post-footer">
           <div class="post-tags">
               <a href="/tags/OI/" rel="tag"># OI</a>
-              <a href="/tags/%E6%B8%B8%E8%AE%B0/" rel="tag"># 游记</a>
-              <a href="/tags/CSP-NOIP/" rel="tag"># CSP/NOIP</a>
+              <a href="/tags/%E7%AC%94%E8%AE%B0/" rel="tag"># 笔记</a>
           </div>
 
         
 
           <div class="post-nav">
             <div class="post-nav-item">
-                <a href="/2024/10/27/CCPC-2024-JN/" rel="prev" title="CCPC 2024 JN 打铁记">
-                  <i class="fa fa-angle-left"></i> CCPC 2024 JN 打铁记
+                <a href="/2024/07/31/The-useage-of-bitset/" rel="prev" title="暴力碾标算，$n^2$过十万 —— bitset 的妙用">
+                  <i class="fa fa-angle-left"></i> 暴力碾标算，$n^2$过十万 —— bitset 的妙用
                 </a>
             </div>
             <div class="post-nav-item">
-                <a href="/2024/11/12/NOI-Linux-note/" rel="next" title="NOI Linux 使用技巧">
-                  NOI Linux 使用技巧 <i class="fa fa-angle-right"></i>
+                <a href="/2024/10/27/CCPC-2024-JN/" rel="next" title="CCPC 2024 JN 打铁记">
+                  CCPC 2024 JN 打铁记 <i class="fa fa-angle-right"></i>
                 </a>
             </div>
           </div>
