@@ -20,15 +20,15 @@
 
 <script class="next-config" data-name="main" type="application/json">{"hostname":"zhangyaoan.github.io","root":"/","images":"/images","scheme":"Muse","darkmode":true,"version":"8.21.0","exturl":false,"sidebar":{"position":"left","width_expanded":320,"width_dual_column":240,"display":"post","padding":18,"offset":12},"hljswrap":true,"copycode":{"enable":false,"style":null},"fold":{"enable":false,"height":500},"bookmark":{"enable":false,"color":"#222","save":"auto"},"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"stickytabs":false,"motion":{"enable":true,"async":false,"transition":{"menu_item":"fadeInDown","post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"i18n":{"placeholder":"搜索...","empty":"没有找到任何搜索结果：${query}","hits_time":"找到 ${hits} 个搜索结果（用时 ${time} 毫秒）","hits":"找到 ${hits} 个搜索结果"}}</script><script src="/js/config.js"></script>
 
-    <meta name="description" content="本篇是 NOIP 2024 的游记，之后就要退役了 QwQ，所以这大概是我的最后一篇 OI 赛事的游记了 TODO">
+    <meta name="description" content="本篇是 NOIP 2024 的游记，之后就要退役了 QwQ，所以这大概是我的最后一篇 OI 赛事的游记了  期望得分 $[40, 60] + [20, 40] + 0 + 0 &#x3D; [60, 100] pts$ 全是无脑特殊性质 和暴零有什么区别 被 T1 和 T2 创死，拿下 OI 生涯中最差成绩，省四遗憾离场 OI 生涯就这样不圆满地结束了 QwQ">
 <meta property="og:type" content="article">
-<meta property="og:title" content="NOIP 2024 游记">
+<meta property="og:title" content="NOIP 2024 暴零记">
 <meta property="og:url" content="https://zhangyaoan.github.io/2024/11/23/NOIP-2024-summary/index.html">
 <meta property="og:site_name" content="蒟蒻のBlog">
-<meta property="og:description" content="本篇是 NOIP 2024 的游记，之后就要退役了 QwQ，所以这大概是我的最后一篇 OI 赛事的游记了 TODO">
+<meta property="og:description" content="本篇是 NOIP 2024 的游记，之后就要退役了 QwQ，所以这大概是我的最后一篇 OI 赛事的游记了  期望得分 $[40, 60] + [20, 40] + 0 + 0 &#x3D; [60, 100] pts$ 全是无脑特殊性质 和暴零有什么区别 被 T1 和 T2 创死，拿下 OI 生涯中最差成绩，省四遗憾离场 OI 生涯就这样不圆满地结束了 QwQ">
 <meta property="og:locale" content="zh_CN">
 <meta property="article:published_time" content="2024-11-23T10:50:25.000Z">
-<meta property="article:modified_time" content="2024-11-23T11:29:15.949Z">
+<meta property="article:modified_time" content="2024-11-30T11:58:13.652Z">
 <meta property="article:author" content="unsigned char">
 <meta property="article:tag" content="OI">
 <meta property="article:tag" content="游记">
@@ -40,10 +40,10 @@
 
 
 
-<script class="next-config" data-name="page" type="application/json">{"sidebar":"","isHome":false,"isPost":true,"lang":"zh-CN","comments":true,"permalink":"https://zhangyaoan.github.io/2024/11/23/NOIP-2024-summary/","path":"2024/11/23/NOIP-2024-summary/","title":"NOIP 2024 游记"}</script>
+<script class="next-config" data-name="page" type="application/json">{"sidebar":"","isHome":false,"isPost":true,"lang":"zh-CN","comments":true,"permalink":"https://zhangyaoan.github.io/2024/11/23/NOIP-2024-summary/","path":"2024/11/23/NOIP-2024-summary/","title":"NOIP 2024 暴零记"}</script>
 
 <script class="next-config" data-name="calendar" type="application/json">""</script>
-<title>NOIP 2024 游记 | 蒟蒻のBlog</title>
+<title>NOIP 2024 暴零记 | 蒟蒻のBlog</title>
   
 
 
@@ -102,7 +102,7 @@
   
   <aside class="sidebar">
 
-    <div class="sidebar-inner sidebar-overview-active">
+    <div class="sidebar-inner sidebar-nav-active sidebar-toc-active">
       <ul class="sidebar-nav">
         <li class="sidebar-nav-toc">
           文章目录
@@ -115,6 +115,7 @@
       <div class="sidebar-panel-container">
         <!--noindex-->
         <div class="post-toc-wrap sidebar-panel">
+            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E8%AE%B0%E5%BD%95"><span class="nav-number">1.</span> <span class="nav-text">记录</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#T1"><span class="nav-number">1.1.</span> <span class="nav-text">T1</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#T2"><span class="nav-number">1.2.</span> <span class="nav-text">T2</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#T3"><span class="nav-number">1.3.</span> <span class="nav-text">T3</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#T4"><span class="nav-number">1.4.</span> <span class="nav-text">T4</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%8F%8D%E6%80%9D"><span class="nav-number">2.</span> <span class="nav-text">反思</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%80%BB%E7%BB%93"><span class="nav-number">3.</span> <span class="nav-text">总结</span></a></li></ol></div>
         </div>
         <!--/noindex-->
 
@@ -183,12 +184,12 @@
     </span>
 
     <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
-      <meta itemprop="name" content="NOIP 2024 游记 | 蒟蒻のBlog">
+      <meta itemprop="name" content="NOIP 2024 暴零记 | 蒟蒻のBlog">
       <meta itemprop="description" content="">
     </span>
       <header class="post-header">
         <h1 class="post-title" itemprop="name headline">
-          NOIP 2024 游记
+          NOIP 2024 暴零记
         </h1>
 
         <div class="post-meta-container">
@@ -198,9 +199,15 @@
         <i class="far fa-calendar"></i>
       </span>
       <span class="post-meta-item-text">发表于</span>
-      
 
-      <time title="创建时间：2024-11-23 18:50:25 / 修改时间：19:29:15" itemprop="dateCreated datePublished" datetime="2024-11-23T18:50:25+08:00">2024-11-23</time>
+      <time title="创建时间：2024-11-23 18:50:25" itemprop="dateCreated datePublished" datetime="2024-11-23T18:50:25+08:00">2024-11-23</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar-check"></i>
+      </span>
+      <span class="post-meta-item-text">更新于</span>
+      <time title="修改时间：2024-11-30 19:58:13" itemprop="dateModified" datetime="2024-11-30T19:58:13+08:00">2024-11-30</time>
     </span>
 
   
@@ -214,8 +221,30 @@
     
     <div class="post-body" itemprop="articleBody"><blockquote>
 <p>本篇是 NOIP 2024 的游记，之后就要退役了 QwQ，所以这大概是我的最后一篇 OI 赛事的游记了</p>
-<p>TODO</p>
 </blockquote>
+<p>期望得分 $[40, 60] + [20, 40] + 0 + 0 &#x3D; [60, 100] pts$ 全是无脑特殊性质 <del>和<strong>暴零</strong>有什么区别</del></p>
+<p>被 T1 和 T2 创死，拿下 OI 生涯中最差成绩，省四遗憾离场</p>
+<p>OI 生涯就这样不圆满地结束了 QwQ</p>
+<span id="more"></span>
+
+<h2 id="记录"><a href="#记录" class="headerlink" title="记录"></a>记录</h2><h3 id="T1"><a href="#T1" class="headerlink" title="T1"></a>T1</h3><p>下发题目时就发现是很一眼的贪心，但是代码难度很高。场上写了 170 行，调试了两小时，暂时放弃。最后又调了一会，但是最终也没能调出来，只能通过特殊性质 $A$ 和 $B$</p>
+<p>期望得分 $[40, 60]$，视 CCF 数据强弱而定</p>
+<h3 id="T2"><a href="#T2" class="headerlink" title="T2"></a>T2</h3><p>数学推式子题。似乎是 Easy 题。然而场上根本没推出来。最后一个小时心态崩了，以赌一把的心态，凭感觉写了一个做法（实际上我在看 T3 之前就已经想到过，且当时就已经证伪），假了。调不出来。</p>
+<p>仅能通过特殊性质 $A$，期望得分 $[20, 40]$，视数据强度而定（大概率 $20pts$）</p>
+<h3 id="T3"><a href="#T3" class="headerlink" title="T3"></a>T3</h3><p>暂停 T1 之后，先看了下 T2，没想出做法，遂开 T3。发现对于 $k &#x3D; 1$ 的情况，答案等于将给定边的端点合并后作为根的 DFS 序的数量（其实是假的），遂写换根 DP，完成两个 DFS（即程序的核心部分）后，感觉不对劲，再次阅读题面，发现是输出对于每个 $k$ 的方案数的并，当前解法只有 $20pts$，且手玩小样例发现算法假了，果断放弃。浪费了一个小时的时间。</p>
+<p>赛后和 zzethld 交流发现我的思路很接近 $k &#x3D; 1$ 的解法（尽管 DFS 序计数是假的，但是 DP 思路较类似，式子很相似），后悔放弃 QwQ</p>
+<h3 id="T4"><a href="#T4" class="headerlink" title="T4"></a>T4</h3><p>看了题面，感觉很神笔。没写。听说写线段树有 $40pts$ 的暴力 <del>但是我真的能写出来吗</del></p>
+<h2 id="反思"><a href="#反思" class="headerlink" title="反思"></a>反思</h2><ul>
+<li>数学能力太差。数学（主要是数论和组合数学）一直是我的弱项，模拟赛也多次被数学推式子题卡住。</li>
+<li>代码能力太差。或许，换句话说，是对自己太过自信，以为自己有思路就能写出正解。</li>
+<li>开题策略有误。T1 这种好想难写的题就不应该碰，模拟赛已经被这种题创死多次了，拿特殊性质分跑路才是正道；先开 T2 或许有希望想出正解；T3 过早放弃，再多思考一会或许能有出路？其实最重要的还是再 T1 上浪费太多时间了。</li>
+<li>没有对过去进行好的反思和总结，特别在开题策略上。</li>
+<li>心态有问题，这也是我屡次再 NOIP 上挂分的原因之一。<strong>心存执念</strong>往往导致我死冲正解，最后不仅没冲出来，连暴力也没时间写。最后一个小时心态崩溃，根本无法专注下来思考问题，在 T2 使用之前已经证伪的做法就可以看出。</li>
+</ul>
+<p><del>可是现在再反思这些还有什么意义呢？反正都已经退役了</del></p>
+<h2 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h2><p>还是心有不甘啊~</p>
+<p>努力了一年，打的分数和零基础的选手一样，甚至连去年的自己都打不过~ 学会了一堆算法却连一个都没用上~ 感觉这段时间的努力都付诸东流了 QwQ</p>
+<p>但是无论如何，OI 生涯都告一段落了，是时候该放下了。</p>
 
     </div>
 
