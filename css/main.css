@@ -613,7 +613,7 @@ code.hljs {
   position: absolute;
 }
 .highlight-fold {
-  max-height: 500px;
+  max-height: 1000px;
   overflow-y: hidden !important;
 }
 .highlight-fold .expand-btn,
@@ -1368,9 +1368,10 @@ pre code {
   margin-bottom: 10px;
   margin-right: 10px;
   vertical-align: middle;
+  transition: all 0.2s ease-in-out;
 }
 .links-of-author a::before {
-  background: #6306f6;
+  background: #58ff40;
   display: inline-block;
   margin-right: 3px;
   transform: translateY(-2px);
