@@ -1371,7 +1371,7 @@ pre code {
   transition: all 0.2s ease-in-out;
 }
 .links-of-author a::before {
-  background: #58ff40;
+  background: #ffe2cc;
   display: inline-block;
   margin-right: 3px;
   transform: translateY(-2px);
@@ -2701,6 +2701,10 @@ header.header {
   .sidebar-active .footer-fixed {
     left: 320px;
   }
+}
+.giscus {
+  max-width: unset;
+  box-sizing: border-box;
 }
 body {
   background: url("/images/chtholly-background.png");
