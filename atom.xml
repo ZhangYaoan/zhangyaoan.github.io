@@ -1,12 +1,12 @@
 <?xml version="1.0" encoding="utf-8"?>
 <feed xmlns="http://www.w3.org/2005/Atom">
   <title>蒟蒻のBlog</title>
-  <icon>https://zhangyaoan.github.io/icon.png</icon>
+  
   
   <link href="https://zhangyaoan.github.io/atom.xml" rel="self"/>
   
   <link href="https://zhangyaoan.github.io/"/>
-  <updated>2025-07-16T13:13:15.820Z</updated>
+  <updated>2025-10-03T15:22:02.827Z</updated>
   <id>https://zhangyaoan.github.io/</id>
   
   <author>
@@ -21,14 +21,12 @@
     <link href="https://zhangyaoan.github.io/2025/06/09/KDE-beautify/"/>
     <id>https://zhangyaoan.github.io/2025/06/09/KDE-beautify/</id>
     <published>2025-06-09T11:49:00.088Z</published>
-    <updated>2025-07-16T13:13:15.820Z</updated>
+    <updated>2025-10-03T15:22:02.827Z</updated>
     
     
     <summary type="html">&lt;p&gt;众所周知，Gnome 40 之后的版本可个性化程度很差，尤其是 Gnome 48 更新了 UI，虽然配色方案好看了很多，但是用力过度的圆角让人感觉很不爽 &lt;del&gt;强迫症犯了（bs&lt;/del&gt;&lt;/p&gt;
 &lt;p&gt;在这时我心生了切换到 KDE 的念头，但是由于硬盘中 280G+ 的 &lt;em&gt;不明文件&lt;/em&gt; 实际上并不可行，所以最后也只是在虚拟机里体验了一把&lt;/p&gt;
-&lt;blockquote&gt;
-&lt;p&gt;说句闲话：我真的很喜欢 Gnome 的设计理念，相比之下 KDE 的设计显得古板、过时，然而优秀设计理念背后却是与「经典」应用程序的格格不入；此外，Gnome Extension 的丰富程度也是 KDE 望尘莫及的&lt;/p&gt;
-&lt;/blockquote&gt;</summary>
+&lt;p&gt;&lt;img src=&quot;/2025/06/09/KDE-beautify/%E5%B1%8F%E5%B9%95%E6%88%AA%E5%9B%BE_20250716_211027.png&quot; alt=&quot;screen_shot_1&quot;&gt;&lt;/p&gt;</summary>
     
     
     
@@ -382,7 +380,7 @@
     <link href="https://zhangyaoan.github.io/2024/04/14/Blog-build/"/>
     <id>https://zhangyaoan.github.io/2024/04/14/Blog-build/</id>
     <published>2024-04-14T02:56:46.000Z</published>
-    <updated>2025-07-11T09:57:42.407Z</updated>
+    <updated>2025-10-03T15:17:16.112Z</updated>
     
     
     <summary type="html">&lt;blockquote&gt;
