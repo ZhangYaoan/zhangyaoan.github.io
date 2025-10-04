@@ -1366,7 +1366,7 @@ pre code {
   transition: all 0.2s ease-in-out;
 }
 .links-of-author a::before {
-  background: #81178f;
+  background: #1d53ff;
   display: inline-block;
   margin-right: 3px;
   transform: translateY(-2px);
@@ -2738,4 +2738,7 @@ body {
 }
 .main-inner {
   background-color: rgba(255,255,255,0);
+}
+.links-of-author a::before {
+  background: #bec2ff;
 }
