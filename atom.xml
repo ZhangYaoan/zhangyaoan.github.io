@@ -3,11 +3,11 @@
   <title>蒟蒻のBlog</title>
   
   
-  <link href="https://zhangyaoan.github.io/atom.xml" rel="self"/>
+  <link href="https://uint8.moe.page/atom.xml" rel="self"/>
   
-  <link href="https://zhangyaoan.github.io/"/>
+  <link href="https://uint8.moe.page/"/>
   <updated>2025-10-03T15:22:02.827Z</updated>
-  <id>https://zhangyaoan.github.io/</id>
+  <id>https://uint8.moe.page/</id>
   
   <author>
     <name>unsigned char</name>
@@ -18,8 +18,8 @@
   
   <entry>
     <title>KDE 配置记录</title>
-    <link href="https://zhangyaoan.github.io/2025/06/09/KDE-beautify/"/>
-    <id>https://zhangyaoan.github.io/2025/06/09/KDE-beautify/</id>
+    <link href="https://uint8.moe.page/2025/06/09/KDE-beautify/"/>
+    <id>https://uint8.moe.page/2025/06/09/KDE-beautify/</id>
     <published>2025-06-09T11:49:00.088Z</published>
     <updated>2025-10-03T15:22:02.827Z</updated>
     
@@ -31,20 +31,20 @@
     
     
     
-    <category term="技术" scheme="https://zhangyaoan.github.io/tags/%E6%8A%80%E6%9C%AF/"/>
+    <category term="技术" scheme="https://uint8.moe.page/tags/%E6%8A%80%E6%9C%AF/"/>
     
-    <category term="Linux" scheme="https://zhangyaoan.github.io/tags/Linux/"/>
+    <category term="Linux" scheme="https://uint8.moe.page/tags/Linux/"/>
     
-    <category term="颓废" scheme="https://zhangyaoan.github.io/tags/%E9%A2%93%E5%BA%9F/"/>
+    <category term="颓废" scheme="https://uint8.moe.page/tags/%E9%A2%93%E5%BA%9F/"/>
     
-    <category term="KDE" scheme="https://zhangyaoan.github.io/tags/KDE/"/>
+    <category term="KDE" scheme="https://uint8.moe.page/tags/KDE/"/>
     
   </entry>
   
   <entry>
     <title>记一次讨论</title>
-    <link href="https://zhangyaoan.github.io/2025/03/22/Collision-dectection/"/>
-    <id>https://zhangyaoan.github.io/2025/03/22/Collision-dectection/</id>
+    <link href="https://uint8.moe.page/2025/03/22/Collision-dectection/"/>
+    <id>https://uint8.moe.page/2025/03/22/Collision-dectection/</id>
     <published>2025-03-22T06:44:39.000Z</published>
     <updated>2025-03-22T07:14:51.850Z</updated>
     
@@ -58,16 +58,16 @@
     
     
     
-    <category term="技术" scheme="https://zhangyaoan.github.io/tags/%E6%8A%80%E6%9C%AF/"/>
+    <category term="技术" scheme="https://uint8.moe.page/tags/%E6%8A%80%E6%9C%AF/"/>
     
-    <category term="生活" scheme="https://zhangyaoan.github.io/tags/%E7%94%9F%E6%B4%BB/"/>
+    <category term="生活" scheme="https://uint8.moe.page/tags/%E7%94%9F%E6%B4%BB/"/>
     
   </entry>
   
   <entry>
     <title>Forget &amp; Memory —— OI 退役感言</title>
-    <link href="https://zhangyaoan.github.io/2024/11/23/Away-from-OI/"/>
-    <id>https://zhangyaoan.github.io/2024/11/23/Away-from-OI/</id>
+    <link href="https://uint8.moe.page/2024/11/23/Away-from-OI/"/>
+    <id>https://uint8.moe.page/2024/11/23/Away-from-OI/</id>
     <published>2024-11-23T10:52:22.000Z</published>
     <updated>2024-12-14T15:23:39.552Z</updated>
     
@@ -82,16 +82,16 @@
     
     
     
-    <category term="OI" scheme="https://zhangyaoan.github.io/tags/OI/"/>
+    <category term="OI" scheme="https://uint8.moe.page/tags/OI/"/>
     
-    <category term="杂感" scheme="https://zhangyaoan.github.io/tags/%E6%9D%82%E6%84%9F/"/>
+    <category term="杂感" scheme="https://uint8.moe.page/tags/%E6%9D%82%E6%84%9F/"/>
     
   </entry>
   
   <entry>
     <title>NOIP 2024 爆零记</title>
-    <link href="https://zhangyaoan.github.io/2024/11/23/NOIP-2024-summary/"/>
-    <id>https://zhangyaoan.github.io/2024/11/23/NOIP-2024-summary/</id>
+    <link href="https://uint8.moe.page/2024/11/23/NOIP-2024-summary/"/>
+    <id>https://uint8.moe.page/2024/11/23/NOIP-2024-summary/</id>
     <published>2024-11-23T10:50:25.000Z</published>
     <updated>2024-12-07T11:03:13.875Z</updated>
     
@@ -107,18 +107,18 @@
     
     
     
-    <category term="OI" scheme="https://zhangyaoan.github.io/tags/OI/"/>
+    <category term="OI" scheme="https://uint8.moe.page/tags/OI/"/>
     
-    <category term="游记" scheme="https://zhangyaoan.github.io/tags/%E6%B8%B8%E8%AE%B0/"/>
+    <category term="游记" scheme="https://uint8.moe.page/tags/%E6%B8%B8%E8%AE%B0/"/>
     
-    <category term="CSP/NOIP" scheme="https://zhangyaoan.github.io/tags/CSP-NOIP/"/>
+    <category term="CSP/NOIP" scheme="https://uint8.moe.page/tags/CSP-NOIP/"/>
     
   </entry>
   
   <entry>
     <title>NOI Linux 使用技巧</title>
-    <link href="https://zhangyaoan.github.io/2024/11/12/NOI-Linux-note/"/>
-    <id>https://zhangyaoan.github.io/2024/11/12/NOI-Linux-note/</id>
+    <link href="https://uint8.moe.page/2024/11/12/NOI-Linux-note/"/>
+    <id>https://uint8.moe.page/2024/11/12/NOI-Linux-note/</id>
     <published>2024-11-12T10:12:00.000Z</published>
     <updated>2024-11-22T14:59:00.062Z</updated>
     
@@ -135,18 +135,18 @@
     
     
     
-    <category term="OI" scheme="https://zhangyaoan.github.io/tags/OI/"/>
+    <category term="OI" scheme="https://uint8.moe.page/tags/OI/"/>
     
-    <category term="技术" scheme="https://zhangyaoan.github.io/tags/%E6%8A%80%E6%9C%AF/"/>
+    <category term="技术" scheme="https://uint8.moe.page/tags/%E6%8A%80%E6%9C%AF/"/>
     
-    <category term="Linux" scheme="https://zhangyaoan.github.io/tags/Linux/"/>
+    <category term="Linux" scheme="https://uint8.moe.page/tags/Linux/"/>
     
   </entry>
   
   <entry>
     <title>CSP-S 2024 游记</title>
-    <link href="https://zhangyaoan.github.io/2024/10/27/CSP-S-2024-summary/"/>
-    <id>https://zhangyaoan.github.io/2024/10/27/CSP-S-2024-summary/</id>
+    <link href="https://uint8.moe.page/2024/10/27/CSP-S-2024-summary/"/>
+    <id>https://uint8.moe.page/2024/10/27/CSP-S-2024-summary/</id>
     <published>2024-10-27T14:27:50.000Z</published>
     <updated>2024-12-07T11:05:45.987Z</updated>
     
@@ -161,18 +161,18 @@
     
     
     
-    <category term="OI" scheme="https://zhangyaoan.github.io/tags/OI/"/>
+    <category term="OI" scheme="https://uint8.moe.page/tags/OI/"/>
     
-    <category term="游记" scheme="https://zhangyaoan.github.io/tags/%E6%B8%B8%E8%AE%B0/"/>
+    <category term="游记" scheme="https://uint8.moe.page/tags/%E6%B8%B8%E8%AE%B0/"/>
     
-    <category term="CSP/NOIP" scheme="https://zhangyaoan.github.io/tags/CSP-NOIP/"/>
+    <category term="CSP/NOIP" scheme="https://uint8.moe.page/tags/CSP-NOIP/"/>
     
   </entry>
   
   <entry>
     <title>CCPC 2024 JN 打铁记</title>
-    <link href="https://zhangyaoan.github.io/2024/10/27/CCPC-2024-JN/"/>
-    <id>https://zhangyaoan.github.io/2024/10/27/CCPC-2024-JN/</id>
+    <link href="https://uint8.moe.page/2024/10/27/CCPC-2024-JN/"/>
+    <id>https://uint8.moe.page/2024/10/27/CCPC-2024-JN/</id>
     <published>2024-10-27T06:23:18.000Z</published>
     <updated>2024-10-27T11:08:50.534Z</updated>
     
@@ -185,18 +185,18 @@
     
     
     
-    <category term="OI" scheme="https://zhangyaoan.github.io/tags/OI/"/>
+    <category term="OI" scheme="https://uint8.moe.page/tags/OI/"/>
     
-    <category term="XCPC" scheme="https://zhangyaoan.github.io/tags/XCPC/"/>
+    <category term="XCPC" scheme="https://uint8.moe.page/tags/XCPC/"/>
     
-    <category term="游记" scheme="https://zhangyaoan.github.io/tags/%E6%B8%B8%E8%AE%B0/"/>
+    <category term="游记" scheme="https://uint8.moe.page/tags/%E6%B8%B8%E8%AE%B0/"/>
     
   </entry>
   
   <entry>
     <title>插入类 DP 学习笔记</title>
-    <link href="https://zhangyaoan.github.io/2024/09/05/insert-dp/"/>
-    <id>https://zhangyaoan.github.io/2024/09/05/insert-dp/</id>
+    <link href="https://uint8.moe.page/2024/09/05/insert-dp/"/>
+    <id>https://uint8.moe.page/2024/09/05/insert-dp/</id>
     <published>2024-09-05T13:05:00.000Z</published>
     <updated>2024-11-23T02:48:42.267Z</updated>
     
@@ -217,16 +217,16 @@
     
     
     
-    <category term="OI" scheme="https://zhangyaoan.github.io/tags/OI/"/>
+    <category term="OI" scheme="https://uint8.moe.page/tags/OI/"/>
     
-    <category term="笔记" scheme="https://zhangyaoan.github.io/tags/%E7%AC%94%E8%AE%B0/"/>
+    <category term="笔记" scheme="https://uint8.moe.page/tags/%E7%AC%94%E8%AE%B0/"/>
     
   </entry>
   
   <entry>
     <title>暴力碾标算，$n^2$ 过十万 —— bitset 的妙用</title>
-    <link href="https://zhangyaoan.github.io/2024/07/31/The-useage-of-bitset/"/>
-    <id>https://zhangyaoan.github.io/2024/07/31/The-useage-of-bitset/</id>
+    <link href="https://uint8.moe.page/2024/07/31/The-useage-of-bitset/"/>
+    <id>https://uint8.moe.page/2024/07/31/The-useage-of-bitset/</id>
     <published>2024-07-31T06:25:28.000Z</published>
     <updated>2024-11-30T12:47:23.987Z</updated>
     
@@ -239,16 +239,16 @@
     
     
     
-    <category term="OI" scheme="https://zhangyaoan.github.io/tags/OI/"/>
+    <category term="OI" scheme="https://uint8.moe.page/tags/OI/"/>
     
-    <category term="笔记" scheme="https://zhangyaoan.github.io/tags/%E7%AC%94%E8%AE%B0/"/>
+    <category term="笔记" scheme="https://uint8.moe.page/tags/%E7%AC%94%E8%AE%B0/"/>
     
   </entry>
   
   <entry>
     <title>Fedora 折腾记</title>
-    <link href="https://zhangyaoan.github.io/2024/07/18/Fedora-tweaks/"/>
-    <id>https://zhangyaoan.github.io/2024/07/18/Fedora-tweaks/</id>
+    <link href="https://uint8.moe.page/2024/07/18/Fedora-tweaks/"/>
+    <id>https://uint8.moe.page/2024/07/18/Fedora-tweaks/</id>
     <published>2024-07-18T14:05:47.000Z</published>
     <updated>2025-09-21T03:40:39.797Z</updated>
     
@@ -261,20 +261,20 @@
     
     
     
-    <category term="技术" scheme="https://zhangyaoan.github.io/tags/%E6%8A%80%E6%9C%AF/"/>
+    <category term="技术" scheme="https://uint8.moe.page/tags/%E6%8A%80%E6%9C%AF/"/>
     
-    <category term="Linux" scheme="https://zhangyaoan.github.io/tags/Linux/"/>
+    <category term="Linux" scheme="https://uint8.moe.page/tags/Linux/"/>
     
-    <category term="Fedora" scheme="https://zhangyaoan.github.io/tags/Fedora/"/>
+    <category term="Fedora" scheme="https://uint8.moe.page/tags/Fedora/"/>
     
-    <category term="颓废" scheme="https://zhangyaoan.github.io/tags/%E9%A2%93%E5%BA%9F/"/>
+    <category term="颓废" scheme="https://uint8.moe.page/tags/%E9%A2%93%E5%BA%9F/"/>
     
   </entry>
   
   <entry>
     <title>Fedora Linux 中的实用软件</title>
-    <link href="https://zhangyaoan.github.io/2024/07/18/Fedora-useful-software/"/>
-    <id>https://zhangyaoan.github.io/2024/07/18/Fedora-useful-software/</id>
+    <link href="https://uint8.moe.page/2024/07/18/Fedora-useful-software/"/>
+    <id>https://uint8.moe.page/2024/07/18/Fedora-useful-software/</id>
     <published>2024-07-18T13:05:44.000Z</published>
     <updated>2025-09-21T04:05:19.675Z</updated>
     
@@ -287,20 +287,20 @@
     
     
     
-    <category term="技术" scheme="https://zhangyaoan.github.io/tags/%E6%8A%80%E6%9C%AF/"/>
+    <category term="技术" scheme="https://uint8.moe.page/tags/%E6%8A%80%E6%9C%AF/"/>
     
-    <category term="Linux" scheme="https://zhangyaoan.github.io/tags/Linux/"/>
+    <category term="Linux" scheme="https://uint8.moe.page/tags/Linux/"/>
     
-    <category term="Fedora" scheme="https://zhangyaoan.github.io/tags/Fedora/"/>
+    <category term="Fedora" scheme="https://uint8.moe.page/tags/Fedora/"/>
     
-    <category term="颓废" scheme="https://zhangyaoan.github.io/tags/%E9%A2%93%E5%BA%9F/"/>
+    <category term="颓废" scheme="https://uint8.moe.page/tags/%E9%A2%93%E5%BA%9F/"/>
     
   </entry>
   
   <entry>
     <title>WSL 折腾记</title>
-    <link href="https://zhangyaoan.github.io/2024/05/25/WSL-configure/"/>
-    <id>https://zhangyaoan.github.io/2024/05/25/WSL-configure/</id>
+    <link href="https://uint8.moe.page/2024/05/25/WSL-configure/"/>
+    <id>https://uint8.moe.page/2024/05/25/WSL-configure/</id>
     <published>2024-05-25T15:12:39.000Z</published>
     <updated>2024-11-30T12:47:44.312Z</updated>
     
@@ -314,18 +314,18 @@
     
     
     
-    <category term="技术" scheme="https://zhangyaoan.github.io/tags/%E6%8A%80%E6%9C%AF/"/>
+    <category term="技术" scheme="https://uint8.moe.page/tags/%E6%8A%80%E6%9C%AF/"/>
     
-    <category term="Linux" scheme="https://zhangyaoan.github.io/tags/Linux/"/>
+    <category term="Linux" scheme="https://uint8.moe.page/tags/Linux/"/>
     
-    <category term="颓废" scheme="https://zhangyaoan.github.io/tags/%E9%A2%93%E5%BA%9F/"/>
+    <category term="颓废" scheme="https://uint8.moe.page/tags/%E9%A2%93%E5%BA%9F/"/>
     
   </entry>
   
   <entry>
     <title>关于《末日时在做什么？有没有空？可以来拯救吗？》的一点杂感</title>
-    <link href="https://zhangyaoan.github.io/2024/04/30/Thoughts-of-Sukasuak/"/>
-    <id>https://zhangyaoan.github.io/2024/04/30/Thoughts-of-Sukasuak/</id>
+    <link href="https://uint8.moe.page/2024/04/30/Thoughts-of-Sukasuak/"/>
+    <id>https://uint8.moe.page/2024/04/30/Thoughts-of-Sukasuak/</id>
     <published>2024-04-30T08:25:11.000Z</published>
     <updated>2024-11-23T11:27:17.159Z</updated>
     
@@ -340,20 +340,20 @@
     
     
     
-    <category term="杂感" scheme="https://zhangyaoan.github.io/tags/%E6%9D%82%E6%84%9F/"/>
+    <category term="杂感" scheme="https://uint8.moe.page/tags/%E6%9D%82%E6%84%9F/"/>
     
-    <category term="生活" scheme="https://zhangyaoan.github.io/tags/%E7%94%9F%E6%B4%BB/"/>
+    <category term="生活" scheme="https://uint8.moe.page/tags/%E7%94%9F%E6%B4%BB/"/>
     
-    <category term="颓废" scheme="https://zhangyaoan.github.io/tags/%E9%A2%93%E5%BA%9F/"/>
+    <category term="颓废" scheme="https://uint8.moe.page/tags/%E9%A2%93%E5%BA%9F/"/>
     
-    <category term="珂学" scheme="https://zhangyaoan.github.io/tags/%E7%8F%82%E5%AD%A6/"/>
+    <category term="珂学" scheme="https://uint8.moe.page/tags/%E7%8F%82%E5%AD%A6/"/>
     
   </entry>
   
   <entry>
     <title>计算几何学习笔记 II</title>
-    <link href="https://zhangyaoan.github.io/2024/04/20/Geometry-Note-2/"/>
-    <id>https://zhangyaoan.github.io/2024/04/20/Geometry-Note-2/</id>
+    <link href="https://uint8.moe.page/2024/04/20/Geometry-Note-2/"/>
+    <id>https://uint8.moe.page/2024/04/20/Geometry-Note-2/</id>
     <published>2024-04-20T12:14:38.000Z</published>
     <updated>2024-04-26T12:09:58.367Z</updated>
     
@@ -367,18 +367,18 @@
     
     
     
-    <category term="OI" scheme="https://zhangyaoan.github.io/tags/OI/"/>
+    <category term="OI" scheme="https://uint8.moe.page/tags/OI/"/>
     
-    <category term="计算几何" scheme="https://zhangyaoan.github.io/tags/%E8%AE%A1%E7%AE%97%E5%87%A0%E4%BD%95/"/>
+    <category term="计算几何" scheme="https://uint8.moe.page/tags/%E8%AE%A1%E7%AE%97%E5%87%A0%E4%BD%95/"/>
     
-    <category term="笔记" scheme="https://zhangyaoan.github.io/tags/%E7%AC%94%E8%AE%B0/"/>
+    <category term="笔记" scheme="https://uint8.moe.page/tags/%E7%AC%94%E8%AE%B0/"/>
     
   </entry>
   
   <entry>
     <title>Hexo 博客折腾记</title>
-    <link href="https://zhangyaoan.github.io/2024/04/14/Blog-build/"/>
-    <id>https://zhangyaoan.github.io/2024/04/14/Blog-build/</id>
+    <link href="https://uint8.moe.page/2024/04/14/Blog-build/"/>
+    <id>https://uint8.moe.page/2024/04/14/Blog-build/</id>
     <published>2024-04-14T02:56:46.000Z</published>
     <updated>2025-10-04T05:42:27.126Z</updated>
     
@@ -392,16 +392,16 @@
     
     
     
-    <category term="Hexo" scheme="https://zhangyaoan.github.io/tags/Hexo/"/>
+    <category term="Hexo" scheme="https://uint8.moe.page/tags/Hexo/"/>
     
-    <category term="Blog" scheme="https://zhangyaoan.github.io/tags/Blog/"/>
+    <category term="Blog" scheme="https://uint8.moe.page/tags/Blog/"/>
     
   </entry>
   
   <entry>
     <title>计算几何学习笔记</title>
-    <link href="https://zhangyaoan.github.io/2024/04/05/Geometry-Note/"/>
-    <id>https://zhangyaoan.github.io/2024/04/05/Geometry-Note/</id>
+    <link href="https://uint8.moe.page/2024/04/05/Geometry-Note/"/>
+    <id>https://uint8.moe.page/2024/04/05/Geometry-Note/</id>
     <published>2024-04-05T09:25:48.000Z</published>
     <updated>2024-04-26T12:09:25.446Z</updated>
     
@@ -419,11 +419,11 @@
     
     
     
-    <category term="OI" scheme="https://zhangyaoan.github.io/tags/OI/"/>
+    <category term="OI" scheme="https://uint8.moe.page/tags/OI/"/>
     
-    <category term="计算几何" scheme="https://zhangyaoan.github.io/tags/%E8%AE%A1%E7%AE%97%E5%87%A0%E4%BD%95/"/>
+    <category term="计算几何" scheme="https://uint8.moe.page/tags/%E8%AE%A1%E7%AE%97%E5%87%A0%E4%BD%95/"/>
     
-    <category term="笔记" scheme="https://zhangyaoan.github.io/tags/%E7%AC%94%E8%AE%B0/"/>
+    <category term="笔记" scheme="https://uint8.moe.page/tags/%E7%AC%94%E8%AE%B0/"/>
     
   </entry>
   
